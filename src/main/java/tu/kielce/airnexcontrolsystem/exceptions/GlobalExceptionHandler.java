@@ -19,8 +19,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.internalServerError().body(e.getMessage());
     }
 
-    @ExceptionHandler(AirNextControlSystemException.class)
-    public ResponseEntity<String> handleAirNextControlSystemException(AirNextControlSystemException e) {
+    @ExceptionHandler(AirNexControlSystemException.class)
+    public ResponseEntity<String> handleAirNextControlSystemException(AirNexControlSystemException e) {
         logger.error(e.getMessage());
         return ResponseEntity.badRequest().body(e.getMessage());
     }

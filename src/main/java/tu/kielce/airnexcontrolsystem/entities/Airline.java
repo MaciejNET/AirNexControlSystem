@@ -1,7 +1,10 @@
 package tu.kielce.airnexcontrolsystem.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import tu.kielce.airnexcontrolsystem.converters.NameConverter;
 import tu.kielce.airnexcontrolsystem.value_objects.Name;
 
@@ -31,7 +34,6 @@ public class Airline {
     public Airline(final Name name) {
         this.name = name;
     }
-
 
     public void changeName(final Name name) {
         this.name = name;
