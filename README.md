@@ -6,3 +6,4 @@
 ## Autorzy
 - Maciej Deroń
 - Paweł Dostal
+- Mariusz Ignaciuk
