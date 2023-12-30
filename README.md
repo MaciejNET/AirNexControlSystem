@@ -5,3 +5,4 @@
 
 ## Autorzy
 - Maciej Deroń
+- Paweł Dostal
