@@ -1,0 +1,18 @@
+###
+GET http://localhost:8080/plain
+
+###
+GET http://localhost:8080/plain/1
+
+###
+POST http://localhost:8080/plain
+Content-Type: application/json
+
+{
+  "model": "test",
+  "airline": "test",
+  "numberOfSeats": 100
+}
+
+###
+DELETE http://localhost:8080/plain/1
