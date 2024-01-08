@@ -56,7 +56,7 @@ public class Flight {
     @Column(name = "canceled")
     private boolean canceled;
 
-    @OneToMany(mappedBy = "flight")
+    @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
     protected Flight() {

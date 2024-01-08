@@ -25,7 +25,7 @@ public class Airline {
     @Convert(converter = NameConverter.class)
     private Name name;
 
-    @OneToMany(mappedBy = "airline")
+    @OneToMany(mappedBy = "airline", cascade = CascadeType.ALL)
     private List<Plain> plains;
 
     protected Airline() {

@@ -6,6 +6,7 @@ import tu.kielce.airnexcontrolsystem.converters.*;
 import tu.kielce.airnexcontrolsystem.value_objects.*;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Maciej Deroń
@@ -36,6 +37,9 @@ public class Passenger {
     @Column(name = "email", unique = true)
     @Convert(converter = EmailConverter.class)
     private Email email;
+
+    @OneToMany(mappedBy = "passenger", cascade = CascadeType.ALL)
+    private List<Ticket> tickets;
 
     protected Passenger() {
     }

@@ -1,7 +1,7 @@
 package tu.kielce.airnexcontrolsystem.services.implementations;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import tu.kielce.airnexcontrolsystem.commends.CreatePlainCommand;
 import tu.kielce.airnexcontrolsystem.dto.PlainDto;
@@ -14,6 +14,7 @@ import tu.kielce.airnexcontrolsystem.repositories.AirlineRepository;
 import tu.kielce.airnexcontrolsystem.repositories.PlainRepository;
 import tu.kielce.airnexcontrolsystem.services.PlainService;
 import tu.kielce.airnexcontrolsystem.value_objects.Model;
+import tu.kielce.airnexcontrolsystem.value_objects.Name;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +69,8 @@ public class PlainServiceImpl implements PlainService {
     @Override
     public void add(final CreatePlainCommand command) {
         logger.info("Adding plain");
-        Optional<Airline> airlineOptional = airlineRepository.findByName_Value(command.airline());
+        Name name = new Name(command.airline());
+        Optional<Airline> airlineOptional = airlineRepository.findByName(name);
         if (airlineOptional.isEmpty()) {
             throw new AirlineNotExistsException(command.airline());
         }

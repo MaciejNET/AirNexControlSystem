@@ -28,7 +28,7 @@ public class Plain {
     @JoinColumn(name = "airline_id")
     private Airline airline;
 
-    @OneToMany(mappedBy = "plain")
+    @OneToMany(mappedBy = "plain", cascade = CascadeType.ALL)
     private List<Seat> seats;
 
     protected Plain() {
