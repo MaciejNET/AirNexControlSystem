@@ -1,0 +1,26 @@
+###
+GET http://localhost:8080/airport
+
+###
+GET http://localhost:8080/airport/1
+
+###
+POST http://localhost:8080/airport
+Content-Type: application/json
+
+{
+  "name": "test",
+  "city": "test",
+  "country": "test"
+}
+
+###
+DELETE http://localhost:8080/airport/1
+
+###
+PUT http://localhost:8080/airport/1
+Content-Type: application/json
+
+{
+    "name": "test1"
+}

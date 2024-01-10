@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commends.CreatePlainCommand;
 import tu.kielce.airnexcontrolsystem.dto.PlainDto;
 import tu.kielce.airnexcontrolsystem.services.PlainService;
-
 import java.util.List;
 
 /**

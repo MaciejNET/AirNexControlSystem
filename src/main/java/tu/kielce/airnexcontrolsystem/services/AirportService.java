@@ -15,6 +15,6 @@ public interface AirportService {
     AirportDto getById(Long id);
     void add(CreateAirportCommand command);
     void delete(Long id);
-    void updateName(UpdateAirportNameCommand command);
+    void updateName(Long id, UpdateAirportNameCommand command);
 
 }
