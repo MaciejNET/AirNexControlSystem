@@ -96,11 +96,11 @@ public class AirportServiceImpl implements AirportService {
     }
 
     @Override
-    public void updateName(UpdateAirportNameCommand command) {
+    public void updateName(Long id, UpdateAirportNameCommand command) {
         logger.info("Updating airport name");
-        Optional<Airport> airportOptional = airportRepository.findById(command.id());
+        Optional<Airport> airportOptional = airportRepository.findById(id);
         if (airportOptional.isEmpty()) {
-            throw new AirportNotExistsException(command.id());
+            throw new AirportNotExistsException(id);
         }
         Name name = new Name(command.name());
         Optional<Airport> airportToCheckOptional = airportRepository.findByName(name);
