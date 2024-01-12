@@ -1,8 +1,10 @@
 package tu.kielce.airnexcontrolsystem.mappers;
 
 import org.springframework.stereotype.Component;
+import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
 import tu.kielce.airnexcontrolsystem.dto.AirportDto;
 import tu.kielce.airnexcontrolsystem.dto.PlainDto;
+import tu.kielce.airnexcontrolsystem.entities.Airline;
 import tu.kielce.airnexcontrolsystem.entities.Airport;
 import tu.kielce.airnexcontrolsystem.entities.Plain;
 
@@ -30,4 +32,13 @@ public class EntityMapperImpl implements EntityMapper {
                     airport.getCountry().value());
         }
 
+
+    /**
+     * @author Mariusz Ignaciuk
+     */
+    @Override
+    public AirlineDto toDto(final Airline airline) {
+        return new AirlineDto(airline.getId(),
+                airline.getName().value());
+    }
 }
