@@ -9,6 +9,7 @@ import tu.kielce.airnexcontrolsystem.commends.UpdateAirportNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
 import tu.kielce.airnexcontrolsystem.entities.Airline;
 import tu.kielce.airnexcontrolsystem.entities.Airport;
+import tu.kielce.airnexcontrolsystem.exceptions.AirlineAlreadyExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.AirlineNotExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportAlreadyExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportNotExistsException;
@@ -70,7 +71,7 @@ public class AirlineServiceImpl implements AirlineService {
         Name name = new Name(command.name());
         Optional<Airline> airlineOptional = airlineRepository.findByName(name);
         if (airlineOptional.isPresent()) {
-            throw new AirlineNotExistsException(command.name());
+            throw new AirportAlreadyExistsException(command.name());
         }
 
         Airline airline = new Airline(name);
@@ -96,7 +97,7 @@ public class AirlineServiceImpl implements AirlineService {
         Name name = new Name(command.name());
         Optional<Airline> airlineToCheckOptional = airlineRepository.findByName(name);
         if (airlineToCheckOptional.isPresent()){
-            throw new AirlineNotExistsException(command.name());
+            throw new AirlineAlreadyExistsException(command.name());
         }
         Airline airline = airlineOptional.get();
         airline.changeName(name);
