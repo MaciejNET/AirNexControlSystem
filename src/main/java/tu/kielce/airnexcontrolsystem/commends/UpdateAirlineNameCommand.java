@@ -1,6 +1,6 @@
 package tu.kielce.airnexcontrolsystem.commends;
 /**
- * @author Maciej Deroń
+ * @author Mariusz Ignaciuk
  */
 public record UpdateAirlineNameCommand(String name) {
 }
