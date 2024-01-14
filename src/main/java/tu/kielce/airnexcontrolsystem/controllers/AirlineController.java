@@ -3,6 +3,7 @@ package tu.kielce.airnexcontrolsystem.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commends.CreateAirlineCommand;
+import tu.kielce.airnexcontrolsystem.commends.UpdateAirlineNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
 import tu.kielce.airnexcontrolsystem.dto.PlainDto;
 import tu.kielce.airnexcontrolsystem.services.AirlineService;
@@ -40,6 +41,11 @@ public class AirlineController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable final Long id) {
         airlineService.delete(id);
+        return ResponseEntity.ok().build();
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateName (@PathVariable final Long id, @RequestBody UpdateAirlineNameCommand command) {
+        airlineService.updateName(id, command);
         return ResponseEntity.ok().build();
     }
 }
