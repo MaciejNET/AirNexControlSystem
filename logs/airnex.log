@@ -61,6 +61,7 @@
 2024-01-10T21:36:31.337+01:00  INFO 11472 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-01-10T21:36:31.339+01:00  INFO 11472 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-01-10T21:36:31.341+01:00  INFO 11472 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+<<<<<<< Updated upstream
 2024-01-12T12:06:10.008+01:00  INFO 2092 --- [main] t.k.a.AirNexControlSystemApplication     : Starting AirNexControlSystemApplication using Java 21.0.1 with PID 2092 (D:\Projekt\AirNexControlSystem\target\classes started by Komputer in D:\Projekt\AirNexControlSystem)
 2024-01-12T12:06:10.009+01:00 DEBUG 2092 --- [main] t.k.a.AirNexControlSystemApplication     : Running with Spring Boot v3.2.1, Spring v6.1.2
 2024-01-12T12:06:10.010+01:00  INFO 2092 --- [main] t.k.a.AirNexControlSystemApplication     : No active profile set, falling back to 1 default profile: "default"
@@ -84,6 +85,31 @@
 2024-01-12T12:06:12.241+01:00  INFO 2092 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
 2024-01-12T12:06:12.262+01:00  INFO 2092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2024-01-12T12:06:13.306+01:00 ERROR 2092 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+=======
+2024-01-12T22:45:56.595+01:00  INFO 11880 --- [main] t.k.a.AirNexControlSystemApplication     : Starting AirNexControlSystemApplication using Java 21.0.1 with PID 11880 (D:\Projekt\AirNexControlSystem\target\classes started by Komputer in D:\Projekt\AirNexControlSystem)
+2024-01-12T22:45:56.596+01:00 DEBUG 11880 --- [main] t.k.a.AirNexControlSystemApplication     : Running with Spring Boot v3.2.1, Spring v6.1.2
+2024-01-12T22:45:56.596+01:00  INFO 11880 --- [main] t.k.a.AirNexControlSystemApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-01-12T22:45:57.345+01:00  INFO 11880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-12T22:45:57.352+01:00  INFO 11880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-01-12T22:45:57.393+01:00  INFO 11880 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.AirlineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-12T22:45:57.394+01:00  INFO 11880 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.AirportRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-12T22:45:57.395+01:00  INFO 11880 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.PlainRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-12T22:45:57.396+01:00  INFO 11880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 0 JDBC repository interfaces.
+2024-01-12T22:45:57.406+01:00  INFO 11880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-12T22:45:57.407+01:00  INFO 11880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-12T22:45:57.438+01:00  INFO 11880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27 ms. Found 3 JPA repository interfaces.
+2024-01-12T22:45:58.158+01:00  INFO 11880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-01-12T22:45:58.178+01:00  INFO 11880 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-12T22:45:58.178+01:00  INFO 11880 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-12T22:45:58.249+01:00  INFO 11880 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-01-12T22:45:58.250+01:00  INFO 11880 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1597 ms
+2024-01-12T22:45:58.528+01:00  INFO 11880 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-12T22:45:58.701+01:00  INFO 11880 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-01-12T22:45:58.737+01:00  INFO 11880 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-12T22:45:58.936+01:00  INFO 11880 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-12T22:45:58.963+01:00  INFO 11880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-12T22:46:00.012+01:00 ERROR 11880 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+>>>>>>> Stashed changes
 
 org.postgresql.util.PSQLException: Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:342) ~[postgresql-42.6.0.jar:42.6.0]
@@ -150,7 +176,11 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.6.0.jar:42.6.0]
 	... 50 common frames omitted
 
+<<<<<<< Updated upstream
 2024-01-12T12:06:13.311+01:00  WARN 2092 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+=======
+2024-01-12T22:46:00.018+01:00  WARN 11880 --- [main] o.h.e.j.e.i.JdbcEnvironmentInitiator     : HHH000342: Could not obtain connection to query metadata
+>>>>>>> Stashed changes
 
 java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(java.sql.SQLException, String)" because the return value of "org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.sqlExceptionHelper()" is null
 	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116) ~[hibernate-core-6.4.1.Final.jar:6.4.1.Final]
@@ -191,10 +221,17 @@ java.lang.NullPointerException: Cannot invoke "org.hibernate.engine.jdbc.spi.Sql
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347) ~[spring-boot-3.2.1.jar:3.2.1]
 	at tu.kielce.airnexcontrolsystem.AirNexControlSystemApplication.main(AirNexControlSystemApplication.java:10) ~[classes/:na]
 
+<<<<<<< Updated upstream
 2024-01-12T12:06:13.327+01:00  WARN 2092 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
 2024-01-12T12:06:14.175+01:00  INFO 2092 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-01-12T12:06:14.186+01:00  INFO 2092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
 2024-01-12T12:06:15.200+01:00 ERROR 2092 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+=======
+2024-01-12T22:46:00.036+01:00  WARN 11880 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-12T22:46:00.854+01:00  INFO 11880 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-12T22:46:00.868+01:00  INFO 11880 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-12T22:46:01.873+01:00 ERROR 11880 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+>>>>>>> Stashed changes
 
 org.postgresql.util.PSQLException: Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:342) ~[postgresql-42.6.0.jar:42.6.0]
@@ -265,6 +302,7 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258) ~[postgresql-42.6.0.jar:42.6.0]
 	... 54 common frames omitted
 
+<<<<<<< Updated upstream
 2024-01-12T12:06:15.203+01:00  WARN 2092 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08001
 2024-01-12T12:06:15.203+01:00 ERROR 2092 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
 2024-01-12T12:06:15.206+01:00 ERROR 2092 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
@@ -570,6 +608,17 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2024-01-12T12:06:33.283+01:00 ERROR 2112 --- [main] o.s.boot.SpringApplication               : Application run failed
+=======
+2024-01-12T22:46:01.876+01:00  WARN 11880 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08001
+2024-01-12T22:46:01.876+01:00 ERROR 11880 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+2024-01-12T22:46:01.882+01:00 ERROR 11880 --- [main] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+2024-01-12T22:46:01.883+01:00  WARN 11880 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
+2024-01-12T22:46:01.884+01:00  INFO 11880 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-01-12T22:46:01.893+01:00  INFO 11880 --- [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-01-12T22:46:01.906+01:00 ERROR 11880 --- [main] o.s.boot.SpringApplication               : Application run failed
+>>>>>>> Stashed changes
 
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1773) ~[spring-beans-6.1.2.jar:6.1.2]
