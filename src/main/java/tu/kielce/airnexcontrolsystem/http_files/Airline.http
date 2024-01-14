@@ -12,3 +12,11 @@ Connect-type: application/json
 }
 ###
 DELETE http://localhost:8080/airport/1
+
+###
+PUT http://localhost:8080/airline/1
+Content-Type: application/json
+
+{
+    "name": "test_1"
+}

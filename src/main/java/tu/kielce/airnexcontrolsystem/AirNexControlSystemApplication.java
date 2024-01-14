@@ -9,5 +9,4 @@ public class AirNexControlSystemApplication {
     public static void main(String[] args) {
         SpringApplication.run(AirNexControlSystemApplication.class, args);
     }
-
 }
