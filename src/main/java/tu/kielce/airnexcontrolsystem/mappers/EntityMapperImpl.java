@@ -1,14 +1,8 @@
 package tu.kielce.airnexcontrolsystem.mappers;
 
 import org.springframework.stereotype.Component;
-import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
-import tu.kielce.airnexcontrolsystem.dto.AirportDto;
-import tu.kielce.airnexcontrolsystem.dto.FlightDto;
-import tu.kielce.airnexcontrolsystem.dto.PlainDto;
-import tu.kielce.airnexcontrolsystem.entities.Airline;
-import tu.kielce.airnexcontrolsystem.entities.Airport;
-import tu.kielce.airnexcontrolsystem.entities.Flight;
-import tu.kielce.airnexcontrolsystem.entities.Plain;
+import tu.kielce.airnexcontrolsystem.dto.*;
+import tu.kielce.airnexcontrolsystem.entities.*;
 
 @Component
 public class EntityMapperImpl implements EntityMapper {
@@ -23,16 +17,16 @@ public class EntityMapperImpl implements EntityMapper {
                 plain.getSeats().size());
     }
 
-        /**
-         * @author Paweł Dostal
-         */
-        @Override
-        public AirportDto toDto(final Airport airport) {
-            return new AirportDto(airport.getId(),
-                    airport.getName().value(),
-                    airport.getCity().value(),
-                    airport.getCountry().value());
-        }
+    /**
+     * @author Paweł Dostal
+     */
+    @Override
+    public AirportDto toDto(final Airport airport) {
+        return new AirportDto(airport.getId(),
+                airport.getName().value(),
+                airport.getCity().value(),
+                airport.getCountry().value());
+    }
 
 
     /**
@@ -49,16 +43,33 @@ public class EntityMapperImpl implements EntityMapper {
      */
     @Override
     public FlightDto toDto(final Flight flight) {
-       return new FlightDto(flight.getId(),
-               flight.getFlightNumber().value(),
-               flight.getDepartureAirport().getName().value(),
-               flight.getArrivalAirport().getName().value(),
-               flight.getDepartureTime().toString(),
-               flight.getArrivalTime().toString(),
-               flight.getPlain().getModel().value(),
-               flight.getAirline().getName().value(),
-               flight.getAvailableSeats().size(),
-               flight.getFlightDuration(),
-               flight.getPrice());
+        return new FlightDto(flight.getId(),
+                flight.getFlightNumber().value(),
+                flight.getDepartureAirport().getName().value(),
+                flight.getArrivalAirport().getName().value(),
+                flight.getDepartureTime().toString(),
+                flight.getArrivalTime().toString(),
+                flight.getPlain().getModel().value(),
+                flight.getAirline().getName().value(),
+                flight.getAvailableSeats().size(),
+                flight.getFlightDuration(),
+                flight.getPrice());
+
     }
+
+    /**
+     * @author Julia Dziekańska
+     */
+
+    /**nie wiem czy to jest git
+    @Override
+        public PassengerDto toDto(final Passenger passenger){
+            return new PassengerDto(passenger.getId(),
+                    passenger.getFirstName().getName().value(),
+                    passenger.getLastName().getLastName().value(),
+                    passenger.getDateOfBirth().value(),
+                    passenger.getPhoneNumber().value(),
+                    passenger.getEmail().getName().value(),
+                    );
+    */
 }

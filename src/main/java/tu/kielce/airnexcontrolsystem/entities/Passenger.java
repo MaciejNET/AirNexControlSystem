@@ -59,4 +59,5 @@ public class Passenger {
     public void changeEmail(final Email email) {
         this.email = email;
     }
+
 }
