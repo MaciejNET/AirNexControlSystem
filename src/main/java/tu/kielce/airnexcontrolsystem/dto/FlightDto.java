@@ -9,6 +9,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+/**
+ * @author Maciej Deroń
+ */
 @Getter
 @Setter
 @NoArgsConstructor

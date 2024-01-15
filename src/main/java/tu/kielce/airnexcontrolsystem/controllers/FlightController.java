@@ -10,6 +10,9 @@ import tu.kielce.airnexcontrolsystem.services.FlightService;
 
 import java.util.List;
 
+/**
+ * @author Maciej Deroń
+ */
 @RestController
 @RequestMapping("/flight")
 public class FlightController {

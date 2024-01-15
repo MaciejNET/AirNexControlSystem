@@ -1,3 +1,5 @@
+## Author: Maciej Deroń
+
 ### Get flight by id
 GET http://localhost:8080/flight/1
 Accept: application/json

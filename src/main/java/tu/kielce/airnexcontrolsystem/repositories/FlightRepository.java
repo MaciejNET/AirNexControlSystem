@@ -7,5 +7,8 @@ import tu.kielce.airnexcontrolsystem.specifications.FlightSpecification;
 
 import java.util.List;
 
+/**
+ * @author Maciej Deroń
+ */
 public interface FlightRepository extends CrudRepository<Flight, Long>, JpaSpecificationExecutor<Flight> {
 }

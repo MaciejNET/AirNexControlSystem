@@ -12,6 +12,7 @@ import tu.kielce.airnexcontrolsystem.entities.Airport;
 import tu.kielce.airnexcontrolsystem.entities.Flight;
 import tu.kielce.airnexcontrolsystem.entities.Plain;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportNotExistsException;
+import tu.kielce.airnexcontrolsystem.exceptions.FlightNotExistsException;
 import tu.kielce.airnexcontrolsystem.mappers.EntityMapper;
 import tu.kielce.airnexcontrolsystem.repositories.AirlineRepository;
 import tu.kielce.airnexcontrolsystem.repositories.AirportRepository;
@@ -109,7 +110,7 @@ public class FlightServiceImpl implements FlightService {
     public void updateDepartureTime(final Long id, final ChangeDepartureTimeCommand command) {
         logger.info("Updating departure time");
         Flight flight = flightRepository.findById(id)
-                .orElseThrow(() -> new AirportNotExistsException(id));
+                .orElseThrow(() -> new FlightNotExistsException(id));
 
         flight.changeDepartureTime(command.departureTime());
         flightRepository.save(flight);
@@ -120,7 +121,7 @@ public class FlightServiceImpl implements FlightService {
     public void updatePrice(final Long id, final ChangePriceCommand command) {
         logger.info("Updating price");
         Flight flight = flightRepository.findById(id)
-                .orElseThrow(() -> new AirportNotExistsException(id));
+                .orElseThrow(() -> new FlightNotExistsException(id));
 
         flight.changePrice(command.price());
         flightRepository.save(flight);

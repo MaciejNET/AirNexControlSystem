@@ -9,6 +9,9 @@ import tu.kielce.airnexcontrolsystem.entities.Flight;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author Maciej Deroń
+ */
 public class FlightSpecification implements Specification<Flight> {
     private final String departureAirport;
     private final String arrivalAirport;
