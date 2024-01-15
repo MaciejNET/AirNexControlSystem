@@ -6,9 +6,10 @@ GET http://locarhost:8080/airline/1
 
 ###
 POST http://localhost:8080/airline
-Connect-type: application/json
+Content-Type: application/json
+
 {
-    "Name": "test"
+    "name": "test"
 }
 ###
 DELETE http://localhost:8080/airport/1

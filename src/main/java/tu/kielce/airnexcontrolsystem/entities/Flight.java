@@ -11,6 +11,7 @@ import tu.kielce.airnexcontrolsystem.value_objects.FlightNumber;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 /**
@@ -53,9 +54,6 @@ public class Flight {
     @Column(name = "price")
     private BigDecimal price;
 
-    @Column(name = "canceled")
-    private boolean canceled;
-
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
@@ -83,15 +81,10 @@ public class Flight {
         this.plain = plain;
         this.airline = airline;
         this.price = price;
-        this.canceled = false;
     }
 
-    public LocalDateTime getFlightDuration() {
-        return arrivalTime.minusHours(departureTime.getHour()).minusMinutes(departureTime.getMinute());
-    }
-
-    public void cancel() {
-        this.canceled = true;
+    public LocalTime getFlightDuration() {
+        return arrivalTime.minusHours(departureTime.getHour()).minusMinutes(departureTime.getMinute()).toLocalTime();
     }
 
     public void changePrice(final BigDecimal price) {
