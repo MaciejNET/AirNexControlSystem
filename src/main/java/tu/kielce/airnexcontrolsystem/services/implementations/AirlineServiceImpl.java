@@ -55,7 +55,7 @@ public class AirlineServiceImpl implements AirlineService {
 
     @Override
     public AirlineDto getById(final Long id) {
-        logger.info("Getting Airline by id: ", + id);
+        logger.info("Getting Airline by id: " + id);
         Optional<Airline> airlineOptional = airlineRepository.findById(id);
         if (airlineOptional.isEmpty()) {
             return null;
@@ -86,6 +86,8 @@ public class AirlineServiceImpl implements AirlineService {
         if (optionalAirline.isEmpty()){
             throw new AirlineNotExistsException(id);
         }
+        Airline airline = optionalAirline.get();
+        airlineRepository.delete(airline);
     }
     @Override
     public void updateName(Long id, UpdateAirlineNameCommand command) {
