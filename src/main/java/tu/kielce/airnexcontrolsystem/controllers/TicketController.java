@@ -1,10 +1,8 @@
 package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import tu.kielce.airnexcontrolsystem.commends.BuyTicketCommand;
 import tu.kielce.airnexcontrolsystem.services.TicketService;
 
 /**
@@ -22,6 +20,12 @@ public class TicketController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> refundTicket(@PathVariable Long id){
         ticketService.refundTicket(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping
+    public ResponseEntity<?> add(@RequestBody BuyTicketCommand command){
+        ticketService.buyTicket(command);
         return ResponseEntity.ok().build();
     }
 }

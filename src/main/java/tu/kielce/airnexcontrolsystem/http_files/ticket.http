@@ -1,4 +1,13 @@
-## Authors: Mariusz Ignaciuk,
+## Authors: Mariusz Ignaciuk, Paweł Dostal
 
 ###
 DELETE http://localhost:8080/ticket/1
+
+###
+POST http://localhost:8080/ticket
+Content-Type: application/json
+
+{
+  "flightId": 1,
+  "email": "test@test.com"
+}
