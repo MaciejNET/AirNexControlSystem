@@ -34,4 +34,5 @@ public class Ticket {
         this.seat = seat;
         this.passenger = passenger;
     }
+
 }

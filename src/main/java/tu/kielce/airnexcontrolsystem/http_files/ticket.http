@@ -1,0 +1,4 @@
+## Authors: Mariusz Ignaciuk,
+
+###
+DELETE http://localhost:8080/ticket/1
