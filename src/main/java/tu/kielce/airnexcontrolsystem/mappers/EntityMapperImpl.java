@@ -1,14 +1,8 @@
 package tu.kielce.airnexcontrolsystem.mappers;
 
 import org.springframework.stereotype.Component;
-import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
-import tu.kielce.airnexcontrolsystem.dto.AirportDto;
-import tu.kielce.airnexcontrolsystem.dto.FlightDto;
-import tu.kielce.airnexcontrolsystem.dto.PlainDto;
-import tu.kielce.airnexcontrolsystem.entities.Airline;
-import tu.kielce.airnexcontrolsystem.entities.Airport;
-import tu.kielce.airnexcontrolsystem.entities.Flight;
-import tu.kielce.airnexcontrolsystem.entities.Plain;
+import tu.kielce.airnexcontrolsystem.dto.*;
+import tu.kielce.airnexcontrolsystem.entities.*;
 
 @Component
 public class EntityMapperImpl implements EntityMapper {
@@ -60,5 +54,29 @@ public class EntityMapperImpl implements EntityMapper {
                flight.getAvailableSeats().size(),
                flight.getFlightDuration(),
                flight.getPrice());
+    }
+
+    /**
+     * @author Julia Dziekańska
+     */
+    @Override
+    public TicketDto toDto(final Ticket ticket) {
+        return new TicketDto(ticket.getId(),
+                ticket.getFlight().getFlightNumber().value(),
+                ticket.getPassenger().getFirstName().value(),
+                ticket.getPassenger().getLastName().value(),
+                ticket.getPassenger().getEmail().value(),
+                ticket.getSeat().getSeatNumber(),
+                ticket.getSeat().getPosition().toString());
+    }
+
+    @Override
+    public PassengerDto toDto(final Passenger passenger) {
+        return new PassengerDto(passenger.getId(),
+                passenger.getFirstName().value(),
+                passenger.getLastName().value(),
+                passenger.getEmail().value(),
+                passenger.getPhoneNumber().value(),
+                passenger.getDateOfBirth());
     }
 }
