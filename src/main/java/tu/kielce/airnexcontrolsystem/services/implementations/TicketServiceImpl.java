@@ -17,8 +17,10 @@ import tu.kielce.airnexcontrolsystem.services.TicketService;
 import tu.kielce.airnexcontrolsystem.value_objects.Email;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 /**
  * @author Mariusz Ignaciuk, Paweł Dostal, Julia Dziekańska
@@ -35,12 +37,13 @@ public class TicketServiceImpl implements TicketService {
         this.flightRepository = flightRepository;
         this.passengerRepository = passengerRepository;
     }
+
     @Override
     public void refundTicket(Long id) {
         logger.info("Refunding ticket");
         Ticket ticket = ticketRepository.findById(id).orElseThrow(() -> new TicketNotExistsException(id));
 
-        if (ticket.getFlight().getDepartureTime().isBefore(LocalDateTime.now())){
+        if (ticket.getFlight().getDepartureTime().isBefore(LocalDateTime.now())) {
             throw new TicketsFlightAlreadyDepartedException(ticket.getFlight().getFlightNumber().value());
         }
         if (LocalDateTime.now().isAfter(ticket.getFlight().getDepartureTime().minusHours(1))) {
@@ -49,6 +52,7 @@ public class TicketServiceImpl implements TicketService {
         ticketRepository.delete(ticket);
         logger.info("Ticket refunded");
     }
+
     @Override
     public void buyTicket(BuyTicketCommand command) {
         logger.info("Buying ticket");
@@ -56,11 +60,11 @@ public class TicketServiceImpl implements TicketService {
         Passenger passenger = passengerRepository.findByEmail(new Email(command.email())).orElseThrow(() -> new PassengerNotExistsException(command.email()));
         Flight flight = flightRepository.findById(command.flightId()).orElseThrow(() -> new FlightNotExistsException(command.flightId()));
 
-        if (flight.getDepartureTime().isBefore(LocalDateTime.now())){
+        if (flight.getDepartureTime().isBefore(LocalDateTime.now())) {
             throw new TicketsFlightAlreadyDepartedException(flight.getFlightNumber().value());
         }
         List<Seat> seats = flight.getAvailableSeats();
-        if (seats.isEmpty()){
+        if (seats.isEmpty()) {
             throw new NoSeatsFlightException();
         }
         Seat seat = seats.get(0);
@@ -69,19 +73,44 @@ public class TicketServiceImpl implements TicketService {
         logger.info("Ticket bought");
     }
 
+
     @Override
-    public TicketDto getById(Long id){
-        Ticket ticket = ticketRepository.findById(id).orElseThrow(() -> new TicketNotExistsException(id));
+    public TicketDto getById(final Long id){
+        logger.info("Getting ticket by id: " + id);
+        return ticketRepository.findById(id).map(entityMapper::toDto).orElse(null);
+    }
+    
+    @Override
+    public List<TicketDto>getAll(){
+        logger.info("Getting all tickets");
+        Iterable<Ticket> tickets = ticketRepository.findAll();
+        if(!tickets.iterator().hasNext()){
+            return new ArrayList<>();
+        }
+        List<TicketDto> dtos = StreamSupport.stream(tickets.spliterator(),false)
+                .map(entityMpper::toDto)
+                .toList();
+        logger.info("Returning all tickets");
+        return dtos;
     }
 
     @Override
-    public List<TicketDto> getUsersTickets(Long userId, boolean isActive){
-        List<Ticket> userTickets = ticketRepository.findByUserIdAndActive(userId, isActive);
-        return userTickets.stream()
-                .map(this::mapTicketToDto)
-                .collect(Collectors.toList());
+    public List<TicketDto> getUsersTickets(final Long id, final boolean active) {
+        logger.info("Getting all tickets for user with id: " + id);
+        Passenger passenger = passengerRepository.findById(id).orElseThrow(() -> new PassengerNotExistsException(id));
+        List<Ticket> tickets = ticketRepository.findAllByPassenger(passenger);
+        if(tickets.isEmpty()){
+            return new ArrayList<>();
+        }
+        if (active){
+            tickets.removeIf(ticketDto -> ticketDto.getFlight().getDepartureTime().isBefore(LocalDateTime.now()));
+        }
+        List<TicketDto> dtos = tickets.stream()
+                .map(entityMapper::toDto)
+                .toList();
+
+        logger.info("Returning all tickets for user with id: " + id);
+        return dtos;
     }
-    private TicketDto mapTicketToDto(Ticket ticket) {
-        return new TicketDto(ticket.getId(), ticket.getFlight().getId(), ticket.getPassenger().getId(), ticket.isActive());
-    }
+
 }
