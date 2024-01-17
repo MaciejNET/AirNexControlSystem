@@ -3,7 +3,10 @@ package tu.kielce.airnexcontrolsystem.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commends.BuyTicketCommand;
+import tu.kielce.airnexcontrolsystem.dto.TicketDto;
 import tu.kielce.airnexcontrolsystem.services.TicketService;
+
+import java.util.List;
 
 /**
  * @author Mariusz Ignaciuk
@@ -15,6 +18,25 @@ public class TicketController {
 
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TicketDto> getTicket(@PathVariable Long id){
+        TicketDto ticket = ticketService.getTicket(id);
+        if(ticket == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(ticket);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TicketDto>> getAllTickets(){
+        return ResponseEntity.ok(ticketService.getAllTickets());
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<List<TicketDto>> getAllUsersTickets(@PathVariable Long id, @RequestParam boolean active){
+        return ResponseEntity.ok(ticketService.getAllUsersTickets(id, active));
     }
 
     @DeleteMapping("/{id}")

@@ -2,14 +2,8 @@ package tu.kielce.airnexcontrolsystem.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
-import tu.kielce.airnexcontrolsystem.dto.FlightDto;
-import tu.kielce.airnexcontrolsystem.dto.PlainDto;
-import tu.kielce.airnexcontrolsystem.dto.AirportDto;
-import tu.kielce.airnexcontrolsystem.entities.Airline;
-import tu.kielce.airnexcontrolsystem.entities.Airport;
-import tu.kielce.airnexcontrolsystem.entities.Flight;
-import tu.kielce.airnexcontrolsystem.entities.Plain;
+import tu.kielce.airnexcontrolsystem.dto.*;
+import tu.kielce.airnexcontrolsystem.entities.*;
 
 @Mapper(componentModel = "spring")
 public interface EntityMapper {
@@ -34,4 +28,10 @@ public interface EntityMapper {
      * @Author Maciej Deroń
      */
     FlightDto toDto(Flight flight);
+
+    /**
+     * @author Julia Dziekańska
+     */
+    TicketDto toDto(Ticket ticket);
+    PassengerDto toDto(Passenger passenger);
 }
