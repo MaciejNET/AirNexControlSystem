@@ -6,7 +6,7 @@ import tu.kielce.airnexcontrolsystem.dto.TicketDto;
 import java.util.List;
 
 /**
- * @author Mariusz Ignaciuk,
+ * @author Mariusz Ignaciuk, Paweł Dostal, Julia Dziekańska
  */
 public interface TicketService {
     void refundTicket(Long id);

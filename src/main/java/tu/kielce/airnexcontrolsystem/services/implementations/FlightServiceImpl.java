@@ -13,6 +13,7 @@ import tu.kielce.airnexcontrolsystem.entities.Flight;
 import tu.kielce.airnexcontrolsystem.entities.Plain;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportNotExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.FlightNotExistsException;
+import tu.kielce.airnexcontrolsystem.exceptions.FlightWithNumberAlreadyExistsException;
 import tu.kielce.airnexcontrolsystem.mappers.EntityMapper;
 import tu.kielce.airnexcontrolsystem.repositories.AirlineRepository;
 import tu.kielce.airnexcontrolsystem.repositories.AirportRepository;
@@ -93,6 +94,10 @@ public class FlightServiceImpl implements FlightService {
                 .orElseThrow(() -> new AirportNotExistsException(command.plainId()));
 
         FlightNumber flightNumber = new FlightNumber(command.flightNumber());
+        if (flightRepository.existsByFlightNumber(flightNumber)) {
+            logger.error("Flight with number: " + command.flightNumber() + " already exists");
+            throw new FlightWithNumberAlreadyExistsException(command.flightNumber());
+        }
         Flight flight = new Flight(flightNumber,
                 command.departureTime(),
                 command.arrivalTime(),

@@ -9,7 +9,7 @@ import tu.kielce.airnexcontrolsystem.services.TicketService;
 import java.util.List;
 
 /**
- * @author Mariusz Ignaciuk
+ * @author Mariusz Ignaciuk, Paweł Dostal, Julia Dziekańska
  */
 @RestController
 @RequestMapping("/ticket")
@@ -22,7 +22,7 @@ public class TicketController {
 
     @GetMapping("/{id}")
     public ResponseEntity<TicketDto> getTicket(@PathVariable Long id){
-        TicketDto ticket = ticketService.getTicket(id);
+        TicketDto ticket = ticketService.getById(id);
         if(ticket == null){
             return ResponseEntity.notFound().build();
         }
@@ -31,12 +31,12 @@ public class TicketController {
 
     @GetMapping
     public ResponseEntity<List<TicketDto>> getAllTickets(){
-        return ResponseEntity.ok(ticketService.getAllTickets());
+        return ResponseEntity.ok(ticketService.getAll());
     }
 
     @GetMapping("/user/{id}")
     public ResponseEntity<List<TicketDto>> getAllUsersTickets(@PathVariable Long id, @RequestParam boolean active){
-        return ResponseEntity.ok(ticketService.getAllUsersTickets(id, active));
+        return ResponseEntity.ok(ticketService.getUsersTickets(id, active));
     }
 
     @DeleteMapping("/{id}")

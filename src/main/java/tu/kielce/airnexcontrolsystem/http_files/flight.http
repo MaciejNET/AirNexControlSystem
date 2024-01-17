@@ -18,7 +18,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "flightNumber": "AA-1233",
+  "flightNumber": "AV-1233",
   "departureAirport": "test1",
   "arrivalAirport": "test2",
   "departureTime": "2024-01-20T10:00:00",

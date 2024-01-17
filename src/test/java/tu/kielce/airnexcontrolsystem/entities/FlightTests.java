@@ -7,10 +7,14 @@ import tu.kielce.airnexcontrolsystem.value_objects.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+/**
+ * @author Maciej Deroń
+ */
 public class FlightTests {
     @Test
     public void testChangePrice() {
@@ -47,7 +51,7 @@ public class FlightTests {
         Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plain, airline, price);
 
         // Act
-        LocalDateTime flightDuration = flight.getFlightDuration();
+        LocalTime flightDuration = flight.getFlightDuration();
 
         // Assert
         assertEquals(2, flightDuration.getHour());

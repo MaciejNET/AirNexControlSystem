@@ -714,3 +714,97 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 2024-01-15T10:06:25.670+01:00  INFO 75479 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-01-15T10:06:25.674+01:00  INFO 75479 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-01-15T10:06:25.677+01:00  INFO 75479 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-01-17T17:20:44.936+01:00  INFO 2932 --- [main] t.k.a.AirNexControlSystemApplication     : Starting AirNexControlSystemApplication using Java 17 with PID 2932 (/Users/maciejnet/studia/3semestr/programowanie-obiektowe-2/AirNexControlSystem/target/classes started by maciejnet in /Users/maciejnet/studia/3semestr/programowanie-obiektowe-2/AirNexControlSystem)
+2024-01-17T17:20:44.939+01:00 DEBUG 2932 --- [main] t.k.a.AirNexControlSystemApplication     : Running with Spring Boot v3.2.1, Spring v6.1.2
+2024-01-17T17:20:44.940+01:00  INFO 2932 --- [main] t.k.a.AirNexControlSystemApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-01-17T17:20:45.861+01:00  INFO 2932 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-17T17:20:45.862+01:00  INFO 2932 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-01-17T17:20:45.909+01:00  INFO 2932 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.AirlineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-17T17:20:45.910+01:00  INFO 2932 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.AirportRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-17T17:20:45.911+01:00  INFO 2932 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.FlightRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-17T17:20:45.912+01:00  INFO 2932 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.PassengerRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-17T17:20:45.913+01:00  INFO 2932 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.PlainRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-17T17:20:45.913+01:00  INFO 2932 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface tu.kielce.airnexcontrolsystem.repositories.TicketRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-01-17T17:20:45.913+01:00  INFO 2932 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 0 JDBC repository interfaces.
+2024-01-17T17:20:45.927+01:00  INFO 2932 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-01-17T17:20:45.928+01:00  INFO 2932 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-01-17T17:20:45.983+01:00  INFO 2932 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 6 JPA repository interfaces.
+2024-01-17T17:20:46.509+01:00  INFO 2932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-01-17T17:20:46.519+01:00  INFO 2932 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-17T17:20:46.520+01:00  INFO 2932 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-17T17:20:46.561+01:00  INFO 2932 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-01-17T17:20:46.562+01:00  INFO 2932 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1557 ms
+2024-01-17T17:20:46.710+01:00  INFO 2932 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-01-17T17:20:46.750+01:00  INFO 2932 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2024-01-17T17:20:46.774+01:00  INFO 2932 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-01-17T17:20:46.910+01:00  INFO 2932 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-01-17T17:20:46.931+01:00  INFO 2932 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-01-17T17:20:47.076+01:00  INFO 2932 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5a3cf878
+2024-01-17T17:20:47.079+01:00  INFO 2932 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-01-17T17:20:47.125+01:00  WARN 2932 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-01-17T17:20:47.871+01:00  INFO 2932 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-01-17T17:20:48.005+01:00  INFO 2932 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-01-17T17:20:48.397+01:00  WARN 2932 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-01-17T17:20:48.974+01:00  INFO 2932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-01-17T17:20:48.985+01:00  INFO 2932 --- [main] t.k.a.AirNexControlSystemApplication     : Started AirNexControlSystemApplication in 4.596 seconds (process running for 5.421)
+2024-01-17T17:21:29.779+01:00  INFO 2932 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-17T17:21:29.780+01:00  INFO 2932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-17T17:21:29.786+01:00  INFO 2932 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-01-17T17:21:29.907+01:00  INFO 2932 --- [http-nio-8080-exec-1] t.k.a.s.i.AirlineServiceImpl             : Adding airline
+2024-01-17T17:21:30.043+01:00 ERROR 2932 --- [http-nio-8080-exec-1] t.k.a.exceptions.GlobalExceptionHandler  : Airport with name test already exists
+2024-01-17T17:21:34.031+01:00  INFO 2932 --- [http-nio-8080-exec-2] t.k.a.s.i.AirlineServiceImpl             : Adding airline
+2024-01-17T17:21:34.037+01:00 ERROR 2932 --- [http-nio-8080-exec-2] t.k.a.exceptions.GlobalExceptionHandler  : Airport with name test already exists
+2024-01-17T17:21:37.485+01:00  INFO 2932 --- [http-nio-8080-exec-3] t.k.a.s.i.AirlineServiceImpl             : Getting all Airline
+2024-01-17T17:21:37.548+01:00  INFO 2932 --- [http-nio-8080-exec-3] t.k.a.s.i.AirlineServiceImpl             : To all Airline
+2024-01-17T17:21:42.442+01:00  INFO 2932 --- [http-nio-8080-exec-5] t.k.a.s.i.PlainServiceImpl               : Adding airport
+2024-01-17T17:21:42.500+01:00 ERROR 2932 --- [http-nio-8080-exec-5] t.k.a.exceptions.GlobalExceptionHandler  : Airport with name test2 already exists
+2024-01-17T17:21:44.694+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.PlainServiceImpl               : Getting all airports
+2024-01-17T17:21:44.740+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.PlainServiceImpl               : Returning all airports
+2024-01-17T17:21:50.599+01:00  INFO 2932 --- [http-nio-8080-exec-8] t.k.a.s.i.PlainServiceImpl               : Adding plain
+2024-01-17T17:21:50.796+01:00  INFO 2932 --- [http-nio-8080-exec-8] t.k.a.s.i.PlainServiceImpl               : Added plain
+2024-01-17T17:21:52.699+01:00  INFO 2932 --- [http-nio-8080-exec-10] t.k.a.s.i.PlainServiceImpl               : Getting all plains
+2024-01-17T17:21:52.757+01:00  INFO 2932 --- [http-nio-8080-exec-10] t.k.a.s.i.PlainServiceImpl               : Returning all plains
+2024-01-17T17:22:03.579+01:00  INFO 2932 --- [http-nio-8080-exec-2] t.k.a.s.i.PassengerServiceImpl           : Creating passenger
+2024-01-17T17:22:03.725+01:00  INFO 2932 --- [http-nio-8080-exec-2] t.k.a.s.i.PassengerServiceImpl           : Passenger created
+2024-01-17T17:22:06.133+01:00  INFO 2932 --- [http-nio-8080-exec-4] t.k.a.s.i.PassengerServiceImpl           : Getting all passengers
+2024-01-17T17:22:11.920+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.PassengerServiceImpl           : Updating passenger with id: 1
+2024-01-17T17:22:11.990+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.PassengerServiceImpl           : Passenger updated
+2024-01-17T17:22:13.617+01:00  INFO 2932 --- [http-nio-8080-exec-8] t.k.a.s.i.PassengerServiceImpl           : Getting all passengers
+2024-01-17T17:22:22.874+01:00  INFO 2932 --- [http-nio-8080-exec-10] t.k.a.s.i.FlightServiceImpl              : Creating flight
+2024-01-17T17:22:22.925+01:00  WARN 2932 --- [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23505
+2024-01-17T17:22:22.925+01:00 ERROR 2932 --- [http-nio-8080-exec-10] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: duplicate key value violates unique constraint "uk_6bx3i9v6ikjiy0ru5ybor8t7"
+  Detail: Key (flight_number)=(AA-1233) already exists.
+2024-01-17T17:22:22.944+01:00 ERROR 2932 --- [http-nio-8080-exec-10] t.k.a.exceptions.GlobalExceptionHandler  : could not execute statement [ERROR: duplicate key value violates unique constraint "uk_6bx3i9v6ikjiy0ru5ybor8t7"
+  Detail: Key (flight_number)=(AA-1233) already exists.] [insert into flights (airline_id,arrival_airport_id,arrival_time,departure_airport_id,departure_time,flight_number,plain_id,price) values (?,?,?,?,?,?,?,?)]; SQL [insert into flights (airline_id,arrival_airport_id,arrival_time,departure_airport_id,departure_time,flight_number,plain_id,price) values (?,?,?,?,?,?,?,?)]; constraint [uk_6bx3i9v6ikjiy0ru5ybor8t7]
+2024-01-17T17:27:43.549+01:00  INFO 2932 --- [http-nio-8080-exec-1] t.k.a.s.i.FlightServiceImpl              : Creating flight
+2024-01-17T17:27:43.604+01:00  INFO 2932 --- [http-nio-8080-exec-1] t.k.a.s.i.FlightServiceImpl              : Flight created
+2024-01-17T17:27:48.640+01:00  INFO 2932 --- [http-nio-8080-exec-3] t.k.a.s.i.FlightServiceImpl              : Creating flight
+2024-01-17T17:27:48.678+01:00  WARN 2932 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23505
+2024-01-17T17:27:48.678+01:00 ERROR 2932 --- [http-nio-8080-exec-3] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: duplicate key value violates unique constraint "uk_6bx3i9v6ikjiy0ru5ybor8t7"
+  Detail: Key (flight_number)=(AV-1233) already exists.
+2024-01-17T17:27:48.691+01:00 ERROR 2932 --- [http-nio-8080-exec-3] t.k.a.exceptions.GlobalExceptionHandler  : could not execute statement [ERROR: duplicate key value violates unique constraint "uk_6bx3i9v6ikjiy0ru5ybor8t7"
+  Detail: Key (flight_number)=(AV-1233) already exists.] [insert into flights (airline_id,arrival_airport_id,arrival_time,departure_airport_id,departure_time,flight_number,plain_id,price) values (?,?,?,?,?,?,?,?)]; SQL [insert into flights (airline_id,arrival_airport_id,arrival_time,departure_airport_id,departure_time,flight_number,plain_id,price) values (?,?,?,?,?,?,?,?)]; constraint [uk_6bx3i9v6ikjiy0ru5ybor8t7]
+2024-01-17T17:27:59.347+01:00  INFO 2932 --- [http-nio-8080-exec-4] t.k.a.s.i.FlightServiceImpl              : Finding flights
+2024-01-17T17:27:59.394+01:00  INFO 2932 --- [http-nio-8080-exec-4] t.k.a.s.i.FlightServiceImpl              : Flights found
+2024-01-17T17:28:13.361+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.FlightServiceImpl              : Finding flights
+2024-01-17T17:28:13.388+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.FlightServiceImpl              : Flights found
+2024-01-17T17:28:28.111+01:00  INFO 2932 --- [http-nio-8080-exec-8] t.k.a.s.i.TicketServiceImpl              : Getting all tickets
+2024-01-17T17:28:29.959+01:00  INFO 2932 --- [http-nio-8080-exec-10] t.k.a.s.i.TicketServiceImpl              : Getting ticket by id: 1
+2024-01-17T17:28:37.908+01:00  INFO 2932 --- [http-nio-8080-exec-2] t.k.a.s.i.TicketServiceImpl              : Buying ticket
+2024-01-17T17:28:37.946+01:00 ERROR 2932 --- [http-nio-8080-exec-2] t.k.a.exceptions.GlobalExceptionHandler  : Passenger with email test@test.com does not exists
+2024-01-17T17:28:53.992+01:00  INFO 2932 --- [http-nio-8080-exec-3] t.k.a.s.i.PassengerServiceImpl           : Getting all passengers
+2024-01-17T17:29:02.073+01:00  INFO 2932 --- [http-nio-8080-exec-5] t.k.a.s.i.TicketServiceImpl              : Buying ticket
+2024-01-17T17:29:02.180+01:00  INFO 2932 --- [http-nio-8080-exec-5] t.k.a.s.i.TicketServiceImpl              : Ticket bought
+2024-01-17T17:29:04.005+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.TicketServiceImpl              : Getting all tickets
+2024-01-17T17:29:04.038+01:00  INFO 2932 --- [http-nio-8080-exec-6] t.k.a.s.i.TicketServiceImpl              : Returning all tickets
+2024-01-17T17:29:07.474+01:00  INFO 2932 --- [http-nio-8080-exec-7] t.k.a.s.i.TicketServiceImpl              : Getting ticket by id: 1
+2024-01-17T17:29:19.245+01:00 ERROR 2932 --- [http-nio-8080-exec-9] t.k.a.exceptions.GlobalExceptionHandler  : No static resource ticket/users/1.
+2024-01-17T17:29:32.754+01:00 ERROR 2932 --- [http-nio-8080-exec-10] t.k.a.exceptions.GlobalExceptionHandler  : Request method 'POST' is not supported
+2024-01-17T17:29:38.102+01:00  INFO 2932 --- [http-nio-8080-exec-1] t.k.a.s.i.TicketServiceImpl              : Getting all tickets for user with id: 1
+2024-01-17T17:29:38.156+01:00  INFO 2932 --- [http-nio-8080-exec-1] t.k.a.s.i.TicketServiceImpl              : Returning all tickets for user with id: 1
+2024-01-17T17:29:42.499+01:00  INFO 2932 --- [http-nio-8080-exec-3] t.k.a.s.i.TicketServiceImpl              : Refunding ticket
+2024-01-17T17:29:42.554+01:00  INFO 2932 --- [http-nio-8080-exec-3] t.k.a.s.i.TicketServiceImpl              : Ticket refunded
+2024-01-17T17:29:46.139+01:00  INFO 2932 --- [http-nio-8080-exec-5] t.k.a.s.i.TicketServiceImpl              : Getting ticket by id: 1
+2024-01-17T17:29:51.627+01:00  INFO 2932 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-01-17T17:29:51.630+01:00  INFO 2932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-01-17T17:29:51.634+01:00  INFO 2932 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

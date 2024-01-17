@@ -70,6 +70,9 @@ public class EntityMapperImpl implements EntityMapper {
                 ticket.getSeat().getPosition().toString());
     }
 
+    /**
+     * @author Julia Dziekańska
+     */
     @Override
     public PassengerDto toDto(final Passenger passenger) {
         return new PassengerDto(passenger.getId(),

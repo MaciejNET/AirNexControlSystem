@@ -33,5 +33,9 @@ public interface EntityMapper {
      * @author Julia Dziekańska
      */
     TicketDto toDto(Ticket ticket);
+
+    /**
+     * @author Julia Dziekańska
+     */
     PassengerDto toDto(Passenger passenger);
 }
