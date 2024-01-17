@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 import tu.kielce.airnexcontrolsystem.commends.BuyTicketCommand;
+import tu.kielce.airnexcontrolsystem.dto.TicketDto;
 import tu.kielce.airnexcontrolsystem.entities.Flight;
 import tu.kielce.airnexcontrolsystem.entities.Passenger;
 import tu.kielce.airnexcontrolsystem.entities.Seat;
@@ -17,9 +18,10 @@ import tu.kielce.airnexcontrolsystem.value_objects.Email;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- * @author Mariusz Ignaciuk, Paweł Dostal
+ * @author Mariusz Ignaciuk, Paweł Dostal, Julia Dziekańska
  */
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -65,5 +67,21 @@ public class TicketServiceImpl implements TicketService {
         Ticket ticket = new Ticket(flight, seat, passenger);
         ticketRepository.save(ticket);
         logger.info("Ticket bought");
+    }
+
+    @Override
+    public TicketDto getById(Long id){
+        Ticket ticket = ticketRepository.findById(id).orElseThrow(() -> new TicketNotExistsException(id));
+    }
+
+    @Override
+    public List<TicketDto> getUsersTickets(Long userId, boolean isActive){
+        List<Ticket> userTickets = ticketRepository.findByUserIdAndActive(userId, isActive);
+        return userTickets.stream()
+                .map(this::mapTicketToDto)
+                .collect(Collectors.toList());
+    }
+    private TicketDto mapTicketToDto(Ticket ticket) {
+        return new TicketDto(ticket.getId(), ticket.getFlight().getId(), ticket.getPassenger().getId(), ticket.isActive());
     }
 }
