@@ -10,6 +10,7 @@ import tu.kielce.airnexcontrolsystem.entities.Passenger;
 import tu.kielce.airnexcontrolsystem.entities.Seat;
 import tu.kielce.airnexcontrolsystem.entities.Ticket;
 import tu.kielce.airnexcontrolsystem.exceptions.*;
+import tu.kielce.airnexcontrolsystem.mappers.EntityMapper;
 import tu.kielce.airnexcontrolsystem.repositories.FlightRepository;
 import tu.kielce.airnexcontrolsystem.repositories.PassengerRepository;
 import tu.kielce.airnexcontrolsystem.repositories.TicketRepository;
@@ -30,12 +31,14 @@ public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
     private final FlightRepository flightRepository;
     private final PassengerRepository passengerRepository;
+    private final EntityMapper entityMapper;
     private static final Logger logger = LogManager.getLogger(TicketServiceImpl.class);
 
-    public TicketServiceImpl(TicketRepository ticketRepository, FlightRepository flightRepository, PassengerRepository passengerRepository) {
+    public TicketServiceImpl(TicketRepository ticketRepository, FlightRepository flightRepository, PassengerRepository passengerRepository, EntityMapper entityMapper) {
         this.ticketRepository = ticketRepository;
         this.flightRepository = flightRepository;
         this.passengerRepository = passengerRepository;
+        this.entityMapper = entityMapper;
     }
 
     @Override
@@ -88,7 +91,7 @@ public class TicketServiceImpl implements TicketService {
             return new ArrayList<>();
         }
         List<TicketDto> dtos = StreamSupport.stream(tickets.spliterator(),false)
-                .map(entityMpper::toDto)
+                .map(entityMapper::toDto)
                 .toList();
         logger.info("Returning all tickets");
         return dtos;
