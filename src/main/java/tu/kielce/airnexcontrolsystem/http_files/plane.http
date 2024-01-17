@@ -1,13 +1,13 @@
 ## Author: Maciej Deroń
 
 ###
-GET http://localhost:8080/plain
+GET http://localhost:8080/plane
 
 ###
-GET http://localhost:8080/plain/1
+GET http://localhost:8080/plane/1
 
 ###
-POST http://localhost:8080/plain
+POST http://localhost:8080/plane
 Content-Type: application/json
 
 {
@@ -17,4 +17,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/plain/1
+DELETE http://localhost:8080/plane/1

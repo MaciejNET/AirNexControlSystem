@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commends.CreateAirlineCommand;
 import tu.kielce.airnexcontrolsystem.commends.UpdateAirlineNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
-import tu.kielce.airnexcontrolsystem.dto.PlainDto;
 import tu.kielce.airnexcontrolsystem.services.AirlineService;
 
 

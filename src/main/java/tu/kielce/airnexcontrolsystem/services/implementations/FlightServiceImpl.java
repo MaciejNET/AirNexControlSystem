@@ -10,7 +10,7 @@ import tu.kielce.airnexcontrolsystem.dto.FlightDto;
 import tu.kielce.airnexcontrolsystem.entities.Airline;
 import tu.kielce.airnexcontrolsystem.entities.Airport;
 import tu.kielce.airnexcontrolsystem.entities.Flight;
-import tu.kielce.airnexcontrolsystem.entities.Plain;
+import tu.kielce.airnexcontrolsystem.entities.Plane;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportNotExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.FlightNotExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.FlightWithNumberAlreadyExistsException;
@@ -18,7 +18,7 @@ import tu.kielce.airnexcontrolsystem.mappers.EntityMapper;
 import tu.kielce.airnexcontrolsystem.repositories.AirlineRepository;
 import tu.kielce.airnexcontrolsystem.repositories.AirportRepository;
 import tu.kielce.airnexcontrolsystem.repositories.FlightRepository;
-import tu.kielce.airnexcontrolsystem.repositories.PlainRepository;
+import tu.kielce.airnexcontrolsystem.repositories.PlaneRepository;
 import tu.kielce.airnexcontrolsystem.services.FlightService;
 import tu.kielce.airnexcontrolsystem.specifications.FlightSpecification;
 import tu.kielce.airnexcontrolsystem.value_objects.FlightNumber;
@@ -34,15 +34,15 @@ import java.util.stream.Collectors;
 public class FlightServiceImpl implements FlightService {
     private final FlightRepository flightRepository;
     private final EntityMapper entityMapper;
-    private final PlainRepository plainRepository;
+    private final PlaneRepository planeRepository;
     private final AirportRepository airportRepository;
     private final AirlineRepository airlineRepository;
     private final static Logger logger = LogManager.getLogger(FlightServiceImpl.class);
 
-    public FlightServiceImpl(FlightRepository flightRepository, EntityMapper entityMapper, PlainRepository plainRepository, AirportRepository airportRepository, AirlineRepository airlineRepository) {
+    public FlightServiceImpl(FlightRepository flightRepository, EntityMapper entityMapper, PlaneRepository planeRepository, AirportRepository airportRepository, AirlineRepository airlineRepository) {
         this.flightRepository = flightRepository;
         this.entityMapper = entityMapper;
-        this.plainRepository = plainRepository;
+        this.planeRepository = planeRepository;
         this.airportRepository = airportRepository;
         this.airlineRepository = airlineRepository;
     }
@@ -90,8 +90,8 @@ public class FlightServiceImpl implements FlightService {
         Airline airline = airlineRepository.findByName(new Name(command.airline()))
                 .orElseThrow(() -> new AirportNotExistsException(command.airline()));
 
-        Plain plain = plainRepository.findById(command.plainId())
-                .orElseThrow(() -> new AirportNotExistsException(command.plainId()));
+        Plane plain = planeRepository.findById(command.planeId())
+                .orElseThrow(() -> new AirportNotExistsException(command.planeId()));
 
         FlightNumber flightNumber = new FlightNumber(command.flightNumber());
         if (flightRepository.existsByFlightNumber(flightNumber)) {

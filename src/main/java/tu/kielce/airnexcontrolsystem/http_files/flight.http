@@ -23,7 +23,7 @@ Accept: application/json
   "arrivalAirport": "test2",
   "departureTime": "2024-01-20T10:00:00",
   "arrivalTime": "2024-01-20T14:00:00",
-  "plainId": 1,
+  "planeId": 1,
   "airline": "test",
   "price": 500.00
 }

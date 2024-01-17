@@ -14,7 +14,7 @@ public record CreateFlightCommand(
         String arrivalAirport,
         LocalDateTime departureTime,
         LocalDateTime arrivalTime,
-        Long plainId,
+        Long planeId,
         String airline,
         @JsonFormat(shape = JsonFormat.Shape.NUMBER_FLOAT) BigDecimal price) {
 }

@@ -14,7 +14,7 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PlainDto implements Serializable {
+public class PlaneDto implements Serializable {
     private Long id;
     private String model;
     private String airline;

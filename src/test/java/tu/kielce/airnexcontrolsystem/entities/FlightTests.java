@@ -25,10 +25,10 @@ public class FlightTests {
         Airport departureAirport = new Airport(new Name("Departure Airport"), new City("City"), new Country("Country"));
         Airport arrivalAirport = new Airport(new Name("Arrival Airport"), new City("City"), new Country("Country"));
         Airline airline = new Airline(new Name("Airline"));
-        Plain plain = new Plain(new Model("Model"), airline, 100);
+        Plane plane = new Plane(new Model("Model"), airline, 100);
         BigDecimal originalPrice = new BigDecimal("100.00");
         BigDecimal newPrice = new BigDecimal("200.00");
-        Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plain, airline, originalPrice);
+        Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plane, airline, originalPrice);
 
         // Act
         flight.changePrice(newPrice);
@@ -46,9 +46,9 @@ public class FlightTests {
         Airport departureAirport = new Airport(new Name("Departure Airport"), new City("City"), new Country("Country"));
         Airport arrivalAirport = new Airport(new Name("Arrival Airport"), new City("City"), new Country("Country"));
         Airline airline = new Airline(new Name("Airline"));
-        Plain plain = new Plain(new Model("Model"), airline, 100);
+        Plane plane = new Plane(new Model("Model"), airline, 100);
         BigDecimal price = new BigDecimal("100.00");
-        Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plain, airline, price);
+        Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plane, airline, price);
 
         // Act
         LocalTime flightDuration = flight.getFlightDuration();
@@ -67,11 +67,11 @@ public class FlightTests {
         Airport departureAirport = new Airport(new Name("Departure Airport"), new City("City"), new Country("Country"));
         Airport arrivalAirport = new Airport(new Name("Arrival Airport"), new City("City"), new Country("Country"));
         Airline airline = new Airline(new Name("Airline"));
-        Plain plain = new Plain(new Model("Model"), airline, 100);
+        Plane plane = new Plane(new Model("Model"), airline, 100);
         BigDecimal price = new BigDecimal("100.00");
 
         // Act and Assert
-        assertThrows(PastDepartureException.class, () -> new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plain, airline, price));
+        assertThrows(PastDepartureException.class, () -> new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plane, airline, price));
     }
 
     @Test
@@ -83,11 +83,11 @@ public class FlightTests {
         Airport departureAirport = new Airport(new Name("Departure Airport"), new City("City"), new Country("Country"));
         Airport arrivalAirport = new Airport(new Name("Arrival Airport"), new City("City"), new Country("Country"));
         Airline airline = new Airline(new Name("Airline"));
-        Plain plain = new Plain(new Model("Model"), airline, 100);
+        Plane plane = new Plane(new Model("Model"), airline, 100);
         BigDecimal price = new BigDecimal("100.00");
 
         // Act and Assert
-        assertThrows(InvalidArrivalException.class, () -> new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plain, airline, price));
+        assertThrows(InvalidArrivalException.class, () -> new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plane, airline, price));
     }
 
     @Test
@@ -99,9 +99,9 @@ public class FlightTests {
         Airport departureAirport = new Airport(new Name("Departure Airport"), new City("City"), new Country("Country"));
         Airport arrivalAirport = new Airport(new Name("Arrival Airport"), new City("City"), new Country("Country"));
         Airline airline = new Airline(new Name("Airline"));
-        Plain plain = new Plain(new Model("Model"), airline, 100);
+        Plane plane = new Plane(new Model("Model"), airline, 100);
         BigDecimal price = new BigDecimal("100.00");
-        Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plain, airline, price);
+        Flight flight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plane, airline, price);
         LocalDateTime newDepartureTime = LocalDateTime.now().minusHours(1);
 
         // Act and Assert

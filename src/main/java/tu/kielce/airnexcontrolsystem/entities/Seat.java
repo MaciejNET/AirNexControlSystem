@@ -23,15 +23,15 @@ public class Seat {
     private SeatPosition position;
 
     @ManyToOne
-    @JoinColumn(name = "plain_id")
-    private Plain plain;
+    @JoinColumn(name = "plane_id")
+    private Plane plane;
 
     protected Seat() {
     }
 
-    public Seat(final int seatNumber, final SeatPosition position, final Plain plain) {
+    public Seat(final int seatNumber, final SeatPosition position, final Plane plane) {
         this.seatNumber = seatNumber;
         this.position = position;
-        this.plain = plain;
+        this.plane = plane;
     }
 }

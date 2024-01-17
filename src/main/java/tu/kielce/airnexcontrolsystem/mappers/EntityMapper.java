@@ -12,7 +12,7 @@ public interface EntityMapper {
     /**
      * @author Maciej Deroń
      */
-    PlainDto toDto(Plain plain);
+    PlaneDto toDto(Plane plane);
 
     /**
      * @author Paweł Dostal

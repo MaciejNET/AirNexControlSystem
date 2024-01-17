@@ -44,8 +44,8 @@ public class Flight {
     private Airport arrivalAirport;
 
     @ManyToOne
-    @JoinColumn(name = "plain_id")
-    private Plain plain;
+    @JoinColumn(name = "plane_id")
+    private Plane plane;
 
     @ManyToOne
     @JoinColumn(name = "airline_id")
@@ -60,7 +60,7 @@ public class Flight {
     protected Flight() {
     }
 
-    public Flight(final FlightNumber flightNumber, final LocalDateTime departureTime, final LocalDateTime arrivalTime, final Airport departureAirport, final Airport arrivalAirport, final Plain plain, final Airline airline, final BigDecimal price) {
+    public Flight(final FlightNumber flightNumber, final LocalDateTime departureTime, final LocalDateTime arrivalTime, final Airport departureAirport, final Airport arrivalAirport, final Plane plane, final Airline airline, final BigDecimal price) {
         if (departureTime.isBefore(LocalDateTime.now())) {
             throw new PastDepartureException();
         }
@@ -70,7 +70,7 @@ public class Flight {
         if (departureAirport.equals(arrivalAirport)) {
             throw new SameAirportException();
         }
-        if (!plain.getAirline().equals(airline)) {
+        if (!plane.getAirline().equals(airline)) {
             throw new AirlineMismatchException();
         }
         this.flightNumber = flightNumber;
@@ -78,7 +78,7 @@ public class Flight {
         this.arrivalTime = arrivalTime;
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
-        this.plain = plain;
+        this.plane = plane;
         this.airline = airline;
         this.price = price;
     }
@@ -107,7 +107,7 @@ public class Flight {
     }
 
     public List<Seat> getAvailableSeats() {
-        return plain.getSeats().stream()
+        return plane.getSeats().stream()
                 .filter(seat -> tickets.stream()
                         .noneMatch(ticket -> ticket.getSeat().equals(seat)))
                 .toList();

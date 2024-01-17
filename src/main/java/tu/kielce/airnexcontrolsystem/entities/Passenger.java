@@ -52,10 +52,6 @@ public class Passenger {
         this.email = email;
     }
 
-    public void changePhoneNumber(final PhoneNumber phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public void changeEmail(final Email email) {
         this.email = email;
     }

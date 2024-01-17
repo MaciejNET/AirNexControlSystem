@@ -13,9 +13,9 @@ import java.util.List;
  * @author Maciej Deroń
  */
 @Entity
-@Table(name = "plains")
+@Table(name = "planes")
 @Getter
-public class Plain {
+public class Plane {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,13 +28,13 @@ public class Plain {
     @JoinColumn(name = "airline_id")
     private Airline airline;
 
-    @OneToMany(mappedBy = "plain", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "plane", cascade = CascadeType.ALL)
     private List<Seat> seats;
 
-    protected Plain() {
+    protected Plane() {
     }
 
-    public Plain(final Model model, final Airline airline, final int numberOfSeats) {
+    public Plane(final Model model, final Airline airline, final int numberOfSeats) {
         this.model = model;
         this.airline = airline;
         seats = new ArrayList<>();

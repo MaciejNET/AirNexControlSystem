@@ -1,10 +1,7 @@
 package tu.kielce.airnexcontrolsystem.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import tu.kielce.airnexcontrolsystem.converters.NameConverter;
 import tu.kielce.airnexcontrolsystem.value_objects.Name;
 
@@ -26,7 +23,7 @@ public class Airline {
     private Name name;
 
     @OneToMany(mappedBy = "airline", cascade = CascadeType.ALL)
-    private List<Plain> plains;
+    private List<Plane> planes;
 
     protected Airline() {
     }

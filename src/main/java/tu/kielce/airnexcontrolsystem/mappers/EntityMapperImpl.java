@@ -10,11 +10,11 @@ public class EntityMapperImpl implements EntityMapper {
      * @author Maciej Deroń
      */
     @Override
-    public PlainDto toDto(final Plain plain) {
-        return new PlainDto(plain.getId(),
-                plain.getModel().value(),
-                plain.getAirline().getName().value(),
-                plain.getSeats().size());
+    public PlaneDto toDto(final Plane plane) {
+        return new PlaneDto(plane.getId(),
+                plane.getModel().value(),
+                plane.getAirline().getName().value(),
+                plane.getSeats().size());
     }
 
         /**
@@ -49,7 +49,7 @@ public class EntityMapperImpl implements EntityMapper {
                flight.getArrivalAirport().getName().value(),
                flight.getDepartureTime().toString(),
                flight.getArrivalTime().toString(),
-               flight.getPlain().getModel().value(),
+               flight.getPlane().getModel().value(),
                flight.getAirline().getName().value(),
                flight.getAvailableSeats().size(),
                flight.getFlightDuration(),

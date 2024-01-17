@@ -9,13 +9,11 @@ import tu.kielce.airnexcontrolsystem.dto.AirportDto;
 import tu.kielce.airnexcontrolsystem.entities.Airport;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportAlreadyExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportNotExistsException;
-import tu.kielce.airnexcontrolsystem.exceptions.PlainNotExistsException;
 import tu.kielce.airnexcontrolsystem.mappers.EntityMapper;
 import tu.kielce.airnexcontrolsystem.repositories.AirportRepository;
 import tu.kielce.airnexcontrolsystem.services.AirportService;
 import tu.kielce.airnexcontrolsystem.value_objects.City;
 import tu.kielce.airnexcontrolsystem.value_objects.Country;
-import tu.kielce.airnexcontrolsystem.value_objects.Model;
 import tu.kielce.airnexcontrolsystem.value_objects.Name;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ public class AirportServiceImpl implements AirportService {
 
     private final AirportRepository airportRepository;
     private final EntityMapper entityMapper;
-    private static final Logger logger = LogManager.getLogger(PlainServiceImpl.class);
+    private static final Logger logger = LogManager.getLogger(PlaneServiceImpl.class);
 
     public AirportServiceImpl(AirportRepository airportRepository, EntityMapper entityMapper) {
         this.airportRepository = airportRepository;
