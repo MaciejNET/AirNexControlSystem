@@ -10,5 +10,5 @@ public record CreatePassengerCommand(
         String lastName,
         String email,
         String phoneNumber,
-        Date dateOfBirth) {
+        String dateOfBirth) {
 }

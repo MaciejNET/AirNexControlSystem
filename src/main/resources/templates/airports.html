@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Airports</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Airports</h1>
+    <form th:action="@{/airport}" th:method="post">
+        <input type="text" th:name="name" placeholder="Airport name">
+        <input type="text" th:name="city" placeholder="Airport city">
+        <input type="text" th:name="country" placeholder="Airport country">
+        <button type="submit">Create Airport</button>
+    </form>
+    <div th:if="${airports.isEmpty()}">
+        <p>No airlines available.</p>
+    </div>
+    <table th:if="${!airports.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="airport : ${airports}">
+                <td th:text="${airport.name}"></td>
+                <td th:text="${airport.city}"></td>
+                <td th:text="${airport.country}"></td>
+                <td>
+                    <div class="actions">
+                        <form th:action="@{/airport/{id}/update(id=${airport.id})}" th:method="post">
+                            <input type="text" th:name="name" placeholder="New name">
+                            <button type="submit">Update Name</button>
+                        </form>
+                        <form th:action="@{/airport/{id}/delete(id=${airport.id})}" th:method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

@@ -80,6 +80,6 @@ public class EntityMapperImpl implements EntityMapper {
                 passenger.getLastName().value(),
                 passenger.getEmail().value(),
                 passenger.getPhoneNumber().value(),
-                passenger.getDateOfBirth());
+                passenger.getDateOfBirth().toString());
     }
 }

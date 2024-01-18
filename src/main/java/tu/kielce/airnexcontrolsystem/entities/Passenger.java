@@ -5,6 +5,7 @@ import lombok.Getter;
 import tu.kielce.airnexcontrolsystem.converters.*;
 import tu.kielce.airnexcontrolsystem.value_objects.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class Passenger {
     private LastName lastName;
 
     @Column(name = "date_of_birth")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "phone_number")
     @Convert(converter = PhoneNumberConverter.class)
@@ -44,7 +45,7 @@ public class Passenger {
     protected Passenger() {
     }
 
-    public Passenger(final FirstName firstName, final LastName lastName, final Date dateOfBirth, final PhoneNumber phoneNumber, final Email email) {
+    public Passenger(final FirstName firstName, final LastName lastName, final LocalDate dateOfBirth, final PhoneNumber phoneNumber, final Email email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;

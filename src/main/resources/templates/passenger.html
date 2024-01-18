@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passenger</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 th:text="${passenger.firstName + ' ' + passenger.lastName + ' ' + passenger.email + ' ' + passenger.phoneNumber + ' ' + passenger.dateOfBirth}"></h1>
+<div class="actions">
+    <form th:action="@{/passenger/{id}/update(id=${passenger.id})}" th:method="post">
+        <input type="email" th:name="email" placeholder="New email">
+        <button type="submit">Update Email</button>
+    </form>
+    <form th:action="@{/passenger/{id}/delete(id=${passenger.id})}" th:method="post">
+        <button type="submit">Delete</button>
+    </form>
+    <form th:action="@{/ticket/user/{id}(id=${passenger.id})}" th:method="get">
+        <button type="submit">Tickets</button>
+    </form>
+</div>
+<a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

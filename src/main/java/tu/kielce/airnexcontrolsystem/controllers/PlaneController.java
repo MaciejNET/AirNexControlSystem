@@ -1,6 +1,8 @@
 package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commands.CreatePlaneCommand;
 import tu.kielce.airnexcontrolsystem.dto.PlaneDto;
@@ -10,7 +12,7 @@ import java.util.List;
 /**
  * @author Maciej Deroń
  */
-@RestController
+@Controller
 @RequestMapping("/plane")
 public class PlaneController {
     private final PlaneService planeService;
@@ -20,28 +22,31 @@ public class PlaneController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PlaneDto>> getAll() {
-        return ResponseEntity.ok(planeService.getAll());
+    public String getAll(Model model) {
+        List<PlaneDto> dtos = planeService.getAll();
+        if (dtos == null) {
+            dtos = List.of();
+        }
+        model.addAttribute("planes", dtos);
+        return "planes";
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlaneDto> getById(@PathVariable final Long id) {
+    public String getById(@PathVariable final Long id, Model model) {
         PlaneDto dto = planeService.getById(id);
-        if (dto == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(dto);
+        model.addAttribute("plane", dto);
+        return "plane";
     }
 
     @PostMapping
-    public ResponseEntity<?> add(@RequestBody CreatePlaneCommand command) {
+    public String add(@ModelAttribute CreatePlaneCommand command) {
         planeService.add(command);
-        return ResponseEntity.ok().build();
+        return "redirect:/plane";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable final Long id) {
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable final Long id) {
         planeService.delete(id);
-        return ResponseEntity.ok().build();
+        return "redirect:/plane";
     }
 }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passengers</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Passengers</h1>
+    <form th:action="@{/passenger}" th:method="post">
+        <input type="text" th:name="firstName" placeholder="Firstname">
+        <input type="text" th:name="lastName" placeholder="Lastname">
+        <input type="email" th:name="email" placeholder="Email">
+        <input type="text" th:name="phoneNumber" placeholder="Phone number">
+        <input type="date" th:name="dateOfBirth" placeholder="Date of Birth">
+        <button type="submit">Create Passenger</button>
+    </form>
+    <div th:if="${passengers.isEmpty()}">
+        <p>No passenger available.</p>
+    </div>
+    <table th:if="${!passengers.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Phone number</th>
+                <th>Date of birth</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="passenger : ${passengers}">
+                <td th:text="${passenger.firstName}"></td>
+                <td th:text="${passenger.lastName}"></td>
+                <td th:text="${passenger.email}"></td>
+                <td th:text="${passenger.phoneNumber}"></td>
+                <td th:text="${passenger.dateOfBirth}"></td>
+                <td>
+                    <div class="actions">
+                        <form th:action="@{/passenger/{id}/update(id=${passenger.id})}" th:method="post">
+                            <input type="email" th:name="email" placeholder="New email">
+                            <button type="submit">Update Email</button>
+                        </form>
+                        <form th:action="@{/passenger/{id}/delete(id=${passenger.id})}" th:method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <form th:action="@{/ticket/user/{id}(id=${passenger.id})}" th:method="get">
+                            <input type="hidden" name="active" value="true">
+                            <button type="submit">Tickets</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

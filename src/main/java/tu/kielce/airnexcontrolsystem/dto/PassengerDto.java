@@ -21,5 +21,5 @@ public class PassengerDto {
     private String lastName;
     private String email;
     private String phoneNumber;
-    private Date dateOfBirth;
+    private String dateOfBirth;
 }

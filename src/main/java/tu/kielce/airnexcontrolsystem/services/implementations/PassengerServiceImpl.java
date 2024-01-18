@@ -17,6 +17,8 @@ import tu.kielce.airnexcontrolsystem.value_objects.FirstName;
 import tu.kielce.airnexcontrolsystem.value_objects.LastName;
 import tu.kielce.airnexcontrolsystem.value_objects.PhoneNumber;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
@@ -61,12 +63,12 @@ public class PassengerServiceImpl implements PassengerService {
         LastName lastName = new LastName(command.lastName());
         Email email = new Email(command.email());
         PhoneNumber phoneNumber = new PhoneNumber(command.phoneNumber());
-
+        LocalDate dateOfBirth = LocalDate.parse(command.dateOfBirth());
         if (passengerRepository.existsByEmail(email)) {
             throw new PassengerWithGivenEmailAlreadyExistsException(command.email());
         }
 
-        Passenger passenger = new Passenger(firstName, lastName, command.dateOfBirth(), phoneNumber, email);
+        Passenger passenger = new Passenger(firstName, lastName, dateOfBirth, phoneNumber, email);
         passengerRepository.save(passenger);
         logger.info("Passenger created");
     }

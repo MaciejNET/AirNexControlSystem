@@ -1,6 +1,8 @@
 package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commands.CreatePassengerCommand;
 import tu.kielce.airnexcontrolsystem.commands.UpdateEmailCommand;
@@ -12,7 +14,7 @@ import java.util.List;
 /**
  * @author Julia Dziekańska
  */
-@RestController
+@Controller
 @RequestMapping("/passenger")
 public class PassengerController {
     private final PassengerService passengerService;
@@ -22,34 +24,37 @@ public class PassengerController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<PassengerDto> getPassenger(@PathVariable Long id) {
+    public String getPassenger(@PathVariable Long id, Model model) {
         PassengerDto passenger = passengerService.getPassenger(id);
-        if (passenger == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(passenger);
+        model.addAttribute("passenger", passenger);
+        return "passenger";
     }
 
     @GetMapping
-    public ResponseEntity<List<PassengerDto>> getAllPassengers() {
-        return ResponseEntity.ok(passengerService.getAllPassengers());
+    public String getAllPassengers(Model model) {
+        List<PassengerDto> passengers = passengerService.getAllPassengers();
+        if (passengers == null) {
+            passengers = List.of();
+        }
+        model.addAttribute("passengers", passengers);
+        return "passengers";
     }
 
     @PostMapping
-    public ResponseEntity<Void> createPassenger(@RequestBody CreatePassengerCommand command) {
+    public String createPassenger(@ModelAttribute CreatePassengerCommand command) {
         passengerService.createPassenger(command);
-        return ResponseEntity.ok().build();
+        return "redirect:/passenger";
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity<Void> updatePassenger(@PathVariable Long id, @RequestBody UpdateEmailCommand command) {
+    @PostMapping("{id}/update")
+    public String updatePassenger(@PathVariable Long id, @ModelAttribute UpdateEmailCommand command) {
         passengerService.updatePassenger(id, command);
-        return ResponseEntity.ok().build();
+        return "redirect:/passenger";
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity<Void> deletePassenger(@PathVariable Long id) {
+    @PostMapping("{id}/delete")
+    public String deletePassenger(@PathVariable Long id) {
         passengerService.deletePassenger(id);
-        return ResponseEntity.ok().build();
+        return "redirect:/passenger";
     }
 }

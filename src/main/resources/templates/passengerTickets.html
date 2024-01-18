@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passenger Tickets</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Passenger Tickets</h1>
+<h2 th:if="${!tickets.isEmpty()}" th:text="${tickets[0].passengerFirstName + ' ' + tickets[0].passengerLastName + ' ' + tickets[0].passengerEmail}"></h2>
+    <div th:if="${tickets.isEmpty()}">
+        <p>No tickets available.</p>
+    </div>
+    <table th:if="${!tickets.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Flight Number</th>
+                <th>Seat Number</th>
+                <th>Seat Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ticket : ${tickets}">
+                <td th:text="${ticket.flightNumber}"></td>
+                <td th:text="${ticket.seatNumber}"></td>
+                <td th:text="${ticket.seatPosition}"></td>
+                <td>
+                    <div class="actions">
+                        <form th:action="@{/ticket/{id}/delete(id=${ticket.id})}" th:method="post">
+                            <button type="submit">Refund</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

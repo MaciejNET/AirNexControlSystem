@@ -18,10 +18,8 @@ import tu.kielce.airnexcontrolsystem.value_objects.FirstName;
 import tu.kielce.airnexcontrolsystem.value_objects.LastName;
 import tu.kielce.airnexcontrolsystem.value_objects.PhoneNumber;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.time.LocalDate;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
@@ -46,7 +44,7 @@ class PassengerServiceTest {
         Passenger existingPassenger = new Passenger(
                 new FirstName("John"),
                 new LastName("Doe"),
-                new Date(),
+                LocalDate.parse("1990-01-01"),
                 new PhoneNumber("123456789"),
                 new Email("john@example.com")
         );
@@ -65,8 +63,8 @@ class PassengerServiceTest {
     @Test
     void getAllPassengers_ShouldReturnListOfPassengerDtos() {
         List<Passenger> passengers = new ArrayList<>();
-        passengers.add(new Passenger(new FirstName("John"), new LastName("Doe"), new Date(), new PhoneNumber("123456789"), new Email("john@example.com")));
-        passengers.add(new Passenger(new FirstName("Jane"), new LastName("Doe"), new Date(), new PhoneNumber("987654321"), new Email("jane@example.com")));
+        passengers.add(new Passenger(new FirstName("John"), new LastName("Doe"), LocalDate.parse("1990-01-01"), new PhoneNumber("123456789"), new Email("john@example.com")));
+        passengers.add(new Passenger(new FirstName("Jane"), new LastName("Doe"), LocalDate.parse("1990-01-01"), new PhoneNumber("987654321"), new Email("jane@example.com")));
 
         when(passengerRepository.findAll()).thenReturn(passengers);
         when(entityMapper.toDto(any(Passenger.class))).thenReturn(new PassengerDto());
@@ -82,7 +80,7 @@ class PassengerServiceTest {
 
     @Test
     void createPassenger_ShouldAddPassenger() {
-        CreatePassengerCommand createCommand = new CreatePassengerCommand("John", "Doe", "john@example.com", "123456789", new Date());
+        CreatePassengerCommand createCommand = new CreatePassengerCommand("John", "Doe", "john@example.com", "123456789", "1990-01-01");
 
         passengerService.createPassenger(createCommand);
 
@@ -96,7 +94,7 @@ class PassengerServiceTest {
         Passenger existingPassenger = new Passenger(
                 new FirstName("John"),
                 new LastName("Doe"),
-                new Date(),
+                LocalDate.parse("1990-01-01"),
                 new PhoneNumber("123456789"),
                 new Email("john@example.com")
         );
@@ -115,7 +113,7 @@ class PassengerServiceTest {
         Passenger existingPassenger = new Passenger(
                 new FirstName("John"),
                 new LastName("Doe"),
-                new Date(),
+                LocalDate.parse("1990-01-01"),
                 new PhoneNumber("123456789"),
                 new Email("john@example.com")
         );

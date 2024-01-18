@@ -2,6 +2,8 @@ package tu.kielce.airnexcontrolsystem.controllers;
 
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tu.kielce.airnexcontrolsystem.commands.CreateAirportCommand;
 import tu.kielce.airnexcontrolsystem.commands.UpdateAirportNameCommand;
@@ -14,7 +16,7 @@ import java.util.List;
  * @author Paweł Dostal
  */
 
-@RestController
+@Controller
 @RequestMapping("/airport")
 public class AirportController {
 
@@ -25,35 +27,38 @@ public class AirportController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AirportDto>> getAll() {
-        return ResponseEntity.ok(airportService.getAll());
+    public String getAll(Model model){
+        List<AirportDto> airportDtoList = airportService.getAll();
+        if (airportDtoList == null) {
+            airportDtoList = List.of();
+        }
+        model.addAttribute("airports", airportDtoList);
+        return "airports";
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AirportDto> getById(@PathVariable final Long id){
+    public String getById(@PathVariable final Long id, Model model){
         AirportDto dto = airportService.getById(id);
-        if (dto == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(dto);
+        model.addAttribute("airport", dto);
+        return "airport";
     }
 
     @PostMapping
-    public ResponseEntity<?> add(@RequestBody CreateAirportCommand command) {
+    public String add(@ModelAttribute CreateAirportCommand command) {
         airportService.add(command);
-        return ResponseEntity.ok().build();
+        return "redirect:/airport";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete (@PathVariable final Long id){
+    @PostMapping("/{id}/delete")
+    public String delete (@PathVariable final Long id){
         airportService.delete(id);
-        return ResponseEntity.ok().build();
+        return "redirect:/airport";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updateName (@PathVariable final Long id, @RequestBody UpdateAirportNameCommand command) {
+    @PostMapping("/{id}/update")
+    public String updateName (@PathVariable final Long id, @ModelAttribute UpdateAirportNameCommand command) {
         airportService.updateName(id, command);
-        return ResponseEntity.ok().build();
+        return "redirect:/airport";
     }
 }
 

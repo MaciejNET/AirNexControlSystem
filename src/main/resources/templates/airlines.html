@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Airlines</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Airlines</h1>
+    <form th:action="@{/airline}" th:method="post">
+        <input type="text" th:name="name" placeholder="Airline name">
+        <button type="submit">Create Airline</button>
+    </form>
+    <div th:if="${airlines.isEmpty()}">
+        <p>No airlines available.</p>
+    </div>
+    <table th:if="${!airlines.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="airline : ${airlines}">
+                <td th:text="${airline.name}"></td>
+                <td>
+                    <div class="actions">
+                        <form th:action="@{/airline/{id}/update(id=${airline.id})}" th:method="post">
+                            <input type="text" th:name="name" placeholder="New name">
+                            <button type="submit">Update Name</button>
+                        </form>
+                        <form th:action="@{/airline/{id}/delete(id=${airline.id})}" th:method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

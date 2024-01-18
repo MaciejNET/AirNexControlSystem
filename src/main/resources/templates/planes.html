@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Planes</title>
+    <style>
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Planes</h1>
+    <form th:action="@{/plane}" th:method="post">
+        <input type="text" th:name="model" placeholder="Plane model">
+        <input type="text" th:name="airline" placeholder="Plane airline">
+        <input type="number" th:name="numberOfSeats" placeholder="Number of seats">
+        <button type="submit">Create Airport</button>
+    </form>
+    <div th:if="${planes.isEmpty()}">
+        <p>No planes available.</p>
+    </div>
+    <table th:if="${!planes.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Airline</th>
+                <th>Number of seats</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="plane : ${planes}">
+                <td th:text="${plane.model}"></td>
+                <td th:text="${plane.airline}"></td>
+                <td th:text="${plane.seatsCount}"></td>
+                <td>
+                    <div class="actions">
+                        <form th:action="@{/plane/{id}/delete(id=${plane.id})}" th:method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/" class="back-button">Back to Home</a>
+</body>
+</html>

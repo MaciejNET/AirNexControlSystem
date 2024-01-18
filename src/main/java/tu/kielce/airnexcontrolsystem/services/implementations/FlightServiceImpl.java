@@ -60,11 +60,9 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public List<FlightDto> findFlights(final String departureAirport, final String arrivalAirport, final String departureTime, final String arrivalTime) {
-        LocalDateTime departureTimeLocalDateTime = departureTime != null ? LocalDateTime.parse(departureTime) : null;
-        LocalDateTime arrivalTimeLocalDateTime = arrivalTime != null ? LocalDateTime.parse(arrivalTime) : null;
+    public List<FlightDto> findFlights(final String departureAirport, final String arrivalAirport, final LocalDateTime departureTime, final LocalDateTime arrivalTime) {
         logger.info("Finding flights");
-        FlightSpecification flightSpecification = new FlightSpecification(departureAirport, arrivalAirport, departureTimeLocalDateTime, arrivalTimeLocalDateTime);
+        FlightSpecification flightSpecification = new FlightSpecification(departureAirport, arrivalAirport, departureTime, arrivalTime);
         List<Flight> flights = flightRepository.findAll(flightSpecification);
 
         if (flights.isEmpty()) {
