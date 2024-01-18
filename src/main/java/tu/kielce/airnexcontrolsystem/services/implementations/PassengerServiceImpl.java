@@ -37,9 +37,8 @@ public class PassengerServiceImpl implements PassengerService {
     @Override
     public PassengerDto getPassenger(final Long id) {
         logger.info("Getting passenger with id: " + id);
-        return passengerRepository.findById(id)
-                .map(entityMapper::toDto)
-                .orElseThrow(() -> new PassengerNotExistsException(id));
+        return
+                passengerRepository.findById(id).map(entityMapper::toDto).orElse(null);
     }
 
     @Override
