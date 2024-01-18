@@ -14,6 +14,5 @@ public interface AirlineService {
     AirlineDto getById(Long id);
     void add(CreateAirlineCommand command);
     void delete(Long id);
-
     void updateName(Long id, UpdateAirlineNameCommand command);
 }
