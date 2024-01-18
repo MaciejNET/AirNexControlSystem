@@ -55,4 +55,5 @@ Architektura systemu jest oparta na modelu MVC (Model-View-Controller). Każdy z
 - Implementacja Passenger(Repository, Service, Controller) + potrzebne DTO, Komendy, wyjątki
 - Współimplementacja Ticket(Repository, Service, Controller) + potrzebne DTO, Komendy, wyjątki
 - Testy jednostkowe Passenger Service
+- Testy jednostkowe Ticket Service
 

@@ -2,6 +2,7 @@ package tu.kielce.airnexcontrolsystem.services;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import tu.kielce.airnexcontrolsystem.dto.AirportDto;
@@ -33,7 +34,7 @@ public class TicketServiceTest {
     @Mock
     private PassengerRepository passengerRepository;
 
-    @Mock
+    @InjectMocks
     private TicketServiceImpl ticketService;
 
     @BeforeEach
@@ -47,13 +48,13 @@ public class TicketServiceTest {
         constructor.setAccessible(true);
         Long airportId = 1L;
         when(ticketRepository.findById(airportId)).thenReturn(Optional.of(constructor.newInstance()));
-        when(entityMapper.toDto(any(Airport.class))).thenReturn(new AirportDto());
+        when(entityMapper.toDto(any(Ticket.class))).thenReturn(new TicketDto());
 
         TicketDto result = ticketService.getById(airportId);
 
         assertNotNull(result);
         verify(ticketRepository, times(1)).findById(airportId);
-        verify(entityMapper, times(1)).toDto(any(Airport.class));
+        verify(entityMapper, times(1)).toDto(any(Ticket.class));
     }
 
 
@@ -62,13 +63,13 @@ public class TicketServiceTest {
         Constructor<Ticket> constructor = Ticket.class.getDeclaredConstructor();
         constructor.setAccessible(true);
         when(ticketRepository.findAll()).thenReturn(Arrays.asList(constructor.newInstance(), constructor.newInstance()));
-        when(entityMapper.toDto(any(Airport.class))).thenReturn(new AirportDto());
+        when(entityMapper.toDto(any(Ticket.class))).thenReturn(new TicketDto());
 
         List<TicketDto> result = ticketService.getAll();
 
         assertEquals(2, result.size());
         verify(ticketRepository, times(1)).findAll();
-        verify(entityMapper, times(2)).toDto(any(Airport.class));
+        verify(entityMapper, times(2)).toDto(any(Ticket.class));
     }
 
     @Test
@@ -87,7 +88,7 @@ public class TicketServiceTest {
         when(entityMapper.toDto(any(Ticket.class))).thenReturn(new TicketDto());
 
         // Act
-        List<TicketDto> result = ticketService.getUsersTickets(userId, true);
+        List<TicketDto> result = ticketService.getUsersTickets(userId, false);
 
         // Assert
         assertEquals(2, result.size());
