@@ -42,7 +42,7 @@ public class Passenger {
     @OneToMany(mappedBy = "passenger", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
-    protected Passenger() {
+    public Passenger() {
     }
 
     public Passenger(final FirstName firstName, final LastName lastName, final LocalDate dateOfBirth, final PhoneNumber phoneNumber, final Email email) {
