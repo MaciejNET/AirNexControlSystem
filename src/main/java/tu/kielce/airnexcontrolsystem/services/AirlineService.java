@@ -1,8 +1,7 @@
 package tu.kielce.airnexcontrolsystem.services;
-import tu.kielce.airnexcontrolsystem.commends.CreateAirlineCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateAirlineNameCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateAirlineCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateAirlineNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
-import tu.kielce.airnexcontrolsystem.entities.Airline;
 
 import java.util.List;
 

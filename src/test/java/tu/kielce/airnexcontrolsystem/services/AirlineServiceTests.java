@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.yaml.snakeyaml.constructor.Construct;
-import tu.kielce.airnexcontrolsystem.commends.CreateAirlineCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateAirlineNameCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateAirlineCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateAirlineNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
 import tu.kielce.airnexcontrolsystem.entities.Airline;
 import tu.kielce.airnexcontrolsystem.exceptions.AirlineAlreadyExistsException;
@@ -29,6 +27,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+/**
+ * @author Mariusz Ignaciuk
+ */
 @ExtendWith(MockitoExtension.class)
 class AirlineServiceTests {
 
@@ -78,7 +79,6 @@ class AirlineServiceTests {
         // Assert
         assertNotNull(result);
 
-        // Verify that repository and mapper methods are called
         verify(airlineRepository, times(1)).findById(airlineId);
         verify(entityMapper, times(1)).toDto(existingAirline);
     }
@@ -95,7 +95,6 @@ class AirlineServiceTests {
         // Assert
         assertNull(result);
 
-        // Verify that repository method is called
         verify(airlineRepository, times(1)).findById(nonExistingAirlineId);
     }
 
@@ -108,7 +107,6 @@ class AirlineServiceTests {
         // Act
         airlineService.add(createCommand);
 
-        // Verify that repository method is called
         verify(airlineRepository, times(1)).findByName(any(Name.class));
         verify(airlineRepository, times(1)).save(any(Airline.class));
     }
@@ -124,7 +122,6 @@ class AirlineServiceTests {
         // Act and Assert
         assertThrows(AirportAlreadyExistsException.class, () -> airlineService.add(createCommand));
 
-        // Verify that repository method is called
         verify(airlineRepository, times(1)).findByName(any(Name.class));
         verify(airlineRepository, never()).save(any(Airline.class));
     }
@@ -139,7 +136,6 @@ class AirlineServiceTests {
         // Act
         airlineService.delete(airlineId);
 
-        // Verify that repository method is called
         verify(airlineRepository, times(1)).findById(airlineId);
         verify(airlineRepository, times(1)).delete(existingAirline);
     }
@@ -153,7 +149,6 @@ class AirlineServiceTests {
         // Act and Assert
         assertThrows(AirlineNotExistsException.class, () -> airlineService.delete(nonExistingAirlineId));
 
-        // Verify that repository method is called
         verify(airlineRepository, times(1)).findById(nonExistingAirlineId);
         verify(airlineRepository, never()).delete(any(Airline.class));
     }
@@ -170,7 +165,6 @@ class AirlineServiceTests {
         assertThrows(AirlineNotExistsException.class,
                 () -> airlineService.updateName(nonExistingAirlineId, updateCommand));
 
-        // Verify that repository methods are not called
         verify(airlineRepository, never()).findByName(any(Name.class));
         verify(airlineRepository, never()).save(any(Airline.class));
     }
@@ -192,7 +186,6 @@ class AirlineServiceTests {
         assertThrows(AirlineAlreadyExistsException.class,
                 () -> airlineService.updateName(airlineId, updateCommand));
 
-        // Verify that repository methods are called
         verify(airlineRepository, times(1)).findById(airlineId);
         verify(airlineRepository, times(1)).findByName(any(Name.class));
         verify(airlineRepository, never()).save(any(Airline.class));

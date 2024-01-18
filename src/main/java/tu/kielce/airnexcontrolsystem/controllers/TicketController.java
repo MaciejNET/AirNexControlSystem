@@ -2,7 +2,7 @@ package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tu.kielce.airnexcontrolsystem.commends.BuyTicketCommand;
+import tu.kielce.airnexcontrolsystem.commands.BuyTicketCommand;
 import tu.kielce.airnexcontrolsystem.dto.TicketDto;
 import tu.kielce.airnexcontrolsystem.services.TicketService;
 

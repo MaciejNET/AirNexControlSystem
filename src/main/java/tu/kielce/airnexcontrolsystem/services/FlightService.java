@@ -1,8 +1,8 @@
 package tu.kielce.airnexcontrolsystem.services;
 
-import tu.kielce.airnexcontrolsystem.commends.ChangeDepartureTimeCommand;
-import tu.kielce.airnexcontrolsystem.commends.ChangePriceCommand;
-import tu.kielce.airnexcontrolsystem.commends.CreateFlightCommand;
+import tu.kielce.airnexcontrolsystem.commands.ChangeDepartureTimeCommand;
+import tu.kielce.airnexcontrolsystem.commands.ChangePriceCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateFlightCommand;
 import tu.kielce.airnexcontrolsystem.dto.FlightDto;
 
 import java.util.List;

@@ -2,8 +2,8 @@ package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tu.kielce.airnexcontrolsystem.commends.CreatePassengerCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateEmailCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePassengerCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateEmailCommand;
 import tu.kielce.airnexcontrolsystem.dto.PassengerDto;
 import tu.kielce.airnexcontrolsystem.services.PassengerService;
 

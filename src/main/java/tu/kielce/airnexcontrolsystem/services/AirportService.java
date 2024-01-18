@@ -1,7 +1,7 @@
 package tu.kielce.airnexcontrolsystem.services;
 
-import tu.kielce.airnexcontrolsystem.commends.CreateAirportCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateAirportNameCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateAirportCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateAirportNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirportDto;
 
 import java.util.List;

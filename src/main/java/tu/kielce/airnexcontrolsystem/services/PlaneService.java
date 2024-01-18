@@ -1,6 +1,6 @@
 package tu.kielce.airnexcontrolsystem.services;
 
-import tu.kielce.airnexcontrolsystem.commends.CreatePlaneCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePlaneCommand;
 import tu.kielce.airnexcontrolsystem.dto.PlaneDto;
 
 import java.util.List;

@@ -3,8 +3,8 @@ package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tu.kielce.airnexcontrolsystem.commends.CreateAirportCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateAirportNameCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateAirportCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateAirportNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirportDto;
 import tu.kielce.airnexcontrolsystem.services.AirportService;
 

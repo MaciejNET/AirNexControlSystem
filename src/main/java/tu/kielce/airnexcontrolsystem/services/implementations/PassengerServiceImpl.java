@@ -3,8 +3,8 @@ package tu.kielce.airnexcontrolsystem.services.implementations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import tu.kielce.airnexcontrolsystem.commends.CreatePassengerCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateEmailCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePassengerCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateEmailCommand;
 import tu.kielce.airnexcontrolsystem.dto.PassengerDto;
 import tu.kielce.airnexcontrolsystem.entities.Passenger;
 import tu.kielce.airnexcontrolsystem.exceptions.PassengerNotExistsException;
@@ -37,8 +37,7 @@ public class PassengerServiceImpl implements PassengerService {
     @Override
     public PassengerDto getPassenger(final Long id) {
         logger.info("Getting passenger with id: " + id);
-        return
-                passengerRepository.findById(id).map(entityMapper::toDto).orElse(null);
+        return passengerRepository.findById(id).map(entityMapper::toDto).orElse(null);
     }
 
     @Override

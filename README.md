@@ -21,13 +21,16 @@
 - Implementacja Airport(Repository, Service, Controller) + potrzebne DTO, Komendy, plik Http, wyjątki
 - Współimplementacja Ticket(Repository, Service, Controller) + potrzebne DTO, Komendy, plik Http, wyjątki
 
-## Mariusz Ignaciuk
+### Mariusz Ignaciuk
 - Implementacja Airline(Repository, Service, Controller) + potrzebne DTO, Komendy, plik Http, wyjątki
 - Współimplementacja Ticket(Repository, Service, Controller) + potrzebne DTO, Komendy, plik Http, wyjątki
+- Testy jednostkowe Airline Service
+- Testy jednostkowe Flight Service
 
 ### Julia Dziekańska
 - Implementacja Passenger(Repository, Service, Controller) + potrzebne DTO, Komendy, plik Http, wyjątki
 - Współimplementacja Ticket(Repository, Service, Controller) + potrzebne DTO, Komendy, plik Http, wyjątki
+- Testy jednostkowe Passenger Service
 
 ## Autorzy
 - Maciej Deroń

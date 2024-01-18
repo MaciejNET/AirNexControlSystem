@@ -1,6 +1,6 @@
 package tu.kielce.airnexcontrolsystem.services;
 
-import tu.kielce.airnexcontrolsystem.commends.BuyTicketCommand;
+import tu.kielce.airnexcontrolsystem.commands.BuyTicketCommand;
 import tu.kielce.airnexcontrolsystem.dto.TicketDto;
 
 import java.util.List;

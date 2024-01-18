@@ -3,7 +3,7 @@ package tu.kielce.airnexcontrolsystem.services.implementations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import tu.kielce.airnexcontrolsystem.commends.CreatePlaneCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePlaneCommand;
 import tu.kielce.airnexcontrolsystem.dto.PlaneDto;
 import tu.kielce.airnexcontrolsystem.entities.Airline;
 import tu.kielce.airnexcontrolsystem.entities.Plane;

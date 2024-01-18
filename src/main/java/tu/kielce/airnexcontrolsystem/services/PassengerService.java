@@ -1,7 +1,7 @@
 package tu.kielce.airnexcontrolsystem.services;
 
-import tu.kielce.airnexcontrolsystem.commends.CreatePassengerCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateEmailCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePassengerCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateEmailCommand;
 import tu.kielce.airnexcontrolsystem.dto.PassengerDto;
 
 import java.util.List;

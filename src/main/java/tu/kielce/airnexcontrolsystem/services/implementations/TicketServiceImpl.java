@@ -3,7 +3,7 @@ package tu.kielce.airnexcontrolsystem.services.implementations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import tu.kielce.airnexcontrolsystem.commends.BuyTicketCommand;
+import tu.kielce.airnexcontrolsystem.commands.BuyTicketCommand;
 import tu.kielce.airnexcontrolsystem.dto.TicketDto;
 import tu.kielce.airnexcontrolsystem.entities.Flight;
 import tu.kielce.airnexcontrolsystem.entities.Passenger;
@@ -20,7 +20,6 @@ import tu.kielce.airnexcontrolsystem.value_objects.Email;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 /**

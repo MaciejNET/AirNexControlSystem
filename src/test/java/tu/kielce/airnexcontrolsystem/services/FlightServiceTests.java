@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import tu.kielce.airnexcontrolsystem.commends.ChangeDepartureTimeCommand;
-import tu.kielce.airnexcontrolsystem.commends.CreateFlightCommand;
+import tu.kielce.airnexcontrolsystem.commands.ChangeDepartureTimeCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateFlightCommand;
 import tu.kielce.airnexcontrolsystem.dto.FlightDto;
 import tu.kielce.airnexcontrolsystem.entities.Airline;
 import tu.kielce.airnexcontrolsystem.entities.Airport;
@@ -20,21 +20,19 @@ import tu.kielce.airnexcontrolsystem.repositories.AirportRepository;
 import tu.kielce.airnexcontrolsystem.repositories.FlightRepository;
 import tu.kielce.airnexcontrolsystem.repositories.PlaneRepository;
 import tu.kielce.airnexcontrolsystem.services.implementations.FlightServiceImpl;
-import tu.kielce.airnexcontrolsystem.specifications.FlightSpecification;
 import tu.kielce.airnexcontrolsystem.value_objects.*;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+/**
+ * @author Mariusz Ignaciuk
+ */
 class FlightServiceTests {
 
     @Mock
@@ -78,7 +76,7 @@ class FlightServiceTests {
     void createFlight_InvalidAirport_ThrowsException() {
         // Arrange
         CreateFlightCommand createFlightCommand = new CreateFlightCommand(
-                "FL123",
+                "FL-1123",
                 "InvalidAirport",
                 "AirportB",
                 LocalDateTime.of(2024, 1, 18, 12, 0),
@@ -94,11 +92,8 @@ class FlightServiceTests {
         assertThrows(AirportNotExistsException.class, () -> flightService.createFlight(createFlightCommand));
     }
 
-    // Similar tests for createFlight with other invalid scenarios (e.g., invalid airline, invalid plane, existing flight number)
-    // should be written following a similar structure.
-
     @Test
-    void updateDepartureTime_ValidCommand_DepartureTimeUpdated() throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    void updateDepartureTime_ValidCommand_DepartureTimeUpdated() {
         // Arrange
         Long flightId = 1L;
         ChangeDepartureTimeCommand changeDepartureTimeCommand = new ChangeDepartureTimeCommand(LocalDateTime.now().plusYears(2L));
@@ -115,7 +110,6 @@ class FlightServiceTests {
 
         BigDecimal price = new BigDecimal("250.00");
 
-// Create a new instance of the Flight class
         Flight newFlight = new Flight(flightNumber, departureTime, arrivalTime, departureAirport, arrivalAirport, plane, airline, price);
         when(flightRepository.findById(flightId)).thenReturn(Optional.of(newFlight));
 

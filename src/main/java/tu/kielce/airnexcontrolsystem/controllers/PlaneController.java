@@ -2,7 +2,7 @@ package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tu.kielce.airnexcontrolsystem.commends.CreatePlaneCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePlaneCommand;
 import tu.kielce.airnexcontrolsystem.dto.PlaneDto;
 import tu.kielce.airnexcontrolsystem.services.PlaneService;
 import java.util.List;

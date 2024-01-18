@@ -1,10 +1,12 @@
+package tu.kielce.airnexcontrolsystem.services;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import tu.kielce.airnexcontrolsystem.commends.CreatePassengerCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateEmailCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreatePassengerCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateEmailCommand;
 import tu.kielce.airnexcontrolsystem.dto.PassengerDto;
 import tu.kielce.airnexcontrolsystem.entities.Passenger;
 import tu.kielce.airnexcontrolsystem.exceptions.PassengerNotExistsException;
@@ -15,7 +17,6 @@ import tu.kielce.airnexcontrolsystem.value_objects.Email;
 import tu.kielce.airnexcontrolsystem.value_objects.FirstName;
 import tu.kielce.airnexcontrolsystem.value_objects.LastName;
 import tu.kielce.airnexcontrolsystem.value_objects.PhoneNumber;
-import tu.kielce.airnexcontrolsystem.services.PassengerService;
 
 import java.util.ArrayList;
 import java.util.Date;

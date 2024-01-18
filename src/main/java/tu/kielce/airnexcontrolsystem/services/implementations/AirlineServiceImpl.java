@@ -3,16 +3,13 @@ package tu.kielce.airnexcontrolsystem.services.implementations;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
-import tu.kielce.airnexcontrolsystem.commends.CreateAirlineCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateAirlineNameCommand;
-import tu.kielce.airnexcontrolsystem.commends.UpdateAirportNameCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateAirlineCommand;
+import tu.kielce.airnexcontrolsystem.commands.UpdateAirlineNameCommand;
 import tu.kielce.airnexcontrolsystem.dto.AirlineDto;
 import tu.kielce.airnexcontrolsystem.entities.Airline;
-import tu.kielce.airnexcontrolsystem.entities.Airport;
 import tu.kielce.airnexcontrolsystem.exceptions.AirlineAlreadyExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.AirlineNotExistsException;
 import tu.kielce.airnexcontrolsystem.exceptions.AirportAlreadyExistsException;
-import tu.kielce.airnexcontrolsystem.exceptions.AirportNotExistsException;
 import tu.kielce.airnexcontrolsystem.mappers.EntityMapper;
 import tu.kielce.airnexcontrolsystem.repositories.AirlineRepository;
 import tu.kielce.airnexcontrolsystem.services.AirlineService;
@@ -22,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 
 /**

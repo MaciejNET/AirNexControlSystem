@@ -1,4 +1,4 @@
-package tu.kielce.airnexcontrolsystem.commends;
+package tu.kielce.airnexcontrolsystem.commands;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

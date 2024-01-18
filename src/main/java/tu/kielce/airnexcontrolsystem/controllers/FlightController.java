@@ -2,9 +2,9 @@ package tu.kielce.airnexcontrolsystem.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tu.kielce.airnexcontrolsystem.commends.ChangeDepartureTimeCommand;
-import tu.kielce.airnexcontrolsystem.commends.ChangePriceCommand;
-import tu.kielce.airnexcontrolsystem.commends.CreateFlightCommand;
+import tu.kielce.airnexcontrolsystem.commands.ChangeDepartureTimeCommand;
+import tu.kielce.airnexcontrolsystem.commands.ChangePriceCommand;
+import tu.kielce.airnexcontrolsystem.commands.CreateFlightCommand;
 import tu.kielce.airnexcontrolsystem.dto.FlightDto;
 import tu.kielce.airnexcontrolsystem.services.FlightService;
 
